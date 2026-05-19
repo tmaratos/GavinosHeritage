@@ -1,0 +1,9 @@
+{
+  "schedule": [
+    { "days": "Monday – Tuesday", "hours": "Closed" },
+    { "days": "Wednesday – Thursday", "hours": "12PM – 8PM" },
+    { "days": "Friday – Saturday", "hours": "12PM – 9PM" },
+    { "days": "Sunday", "hours": "4PM – 8PM" }
+  ],
+  "covidDisclaimer": "*Our current hours are due to COVID-19"
+}

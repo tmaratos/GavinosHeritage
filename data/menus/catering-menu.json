@@ -1,0 +1,17 @@
+{
+  "title": "Catering Menu",
+  "subtitle": "Feed your group — download the catering PDF for trays, pans, and pricing.",
+  "sections": [
+    {
+      "id": "catering-trays",
+      "name": "Catering Trays",
+      "items": [
+        {
+          "name": "Party Pizza Trays",
+          "description": "Full and half-sheet options for events and offices.",
+          "price": "See PDF"
+        }
+      ]
+    }
+  ]
+}

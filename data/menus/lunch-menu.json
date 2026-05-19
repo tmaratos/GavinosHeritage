@@ -1,0 +1,17 @@
+{
+  "title": "Lunch Menu",
+  "subtitle": "Available during lunch hours — see PDF for full list and prices.",
+  "sections": [
+    {
+      "id": "lunch-specials",
+      "name": "Lunch Specials",
+      "items": [
+        {
+          "name": "Slice & Salad Combo",
+          "description": "One slice of cheese pizza with house salad.",
+          "price": "See PDF"
+        }
+      ]
+    }
+  ]
+}

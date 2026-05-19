@@ -1,0 +1,6 @@
+{
+  "submitEndpoint": "",
+  "submitMethod": "formspree",
+  "successMessage": "Thank you! Your application has been submitted. We will be in touch soon.",
+  "errorMessage": "Something went wrong submitting your application. Please call us at (865) 200-5571 or try again later."
+}

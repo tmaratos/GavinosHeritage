@@ -1,0 +1,7 @@
+Sentinel workspace (2026)
+- Runtime: Tauri (Rust) + React (Vite) in app/; local JSON under C:\Sentinel (see Rust commands in app/src-tauri for paths).
+- Core domain: CaseProfile + timeline JSON (evidence/case-profile.json, evidence/timeline-entries.json); not Python/SQLite in this tree.
+- Multi-workspace: evidence/workspaces.json scaffold; primary workflow remains one active matter per individual deployment.
+- Exports: CSV/PDF via jspdf + papaparse; attorney packet ZIP (utils/attorneyPacket.ts); Steward case packet ZIP (utils/casePacketExport.ts).
+- Steward: local rule-based stewardEngine.ts suggestions only; acceptance flows to timeline/evidence via sessionStorage prefill.
+- Legal: Authority Library is user-provided material only; optional internet lookup is gated by VITE_ENABLE_LEGAL_LOOKUP and explicit UI confirmation (see src/services/legalAuthorityLookup.ts).

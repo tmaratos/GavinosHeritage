@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse Gavino's Pizzeria menu — appetizers, pasta, heroes, signature pizzas, lunch specials, catering, and more."
+    />
+    <title>Menu | Gavino's Pizzeria and Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/main.css" />
+    <link rel="stylesheet" href="/src/css/menu.css" />
+  </head>
+  <body data-page="menu">
+    <div id="site-header"></div>
+
+    <header class="page-hero">
+      <div class="container">
+        <h1 id="menu-page-title">Our Menu</h1>
+        <p id="menu-page-subtitle">Fresh Italian favorites, made to order</p>
+      </div>
+    </header>
+
+    <div class="menu-toolbar">
+      <div class="container menu-toolbar__inner">
+        <div class="menu-tabs" role="tablist" aria-label="Menu type">
+          <button
+            type="button"
+            class="menu-tab is-active"
+            role="tab"
+            aria-selected="true"
+            data-menu="dinner"
+          >
+            Dine-In / To-Go
+          </button>
+          <button type="button" class="menu-tab" role="tab" aria-selected="false" data-menu="lunch">
+            Lunch
+          </button>
+          <button
+            type="button"
+            class="menu-tab"
+            role="tab"
+            aria-selected="false"
+            data-menu="catering"
+          >
+            Catering
+          </button>
+        </div>
+        <nav id="menu-category-nav" class="menu-category-nav" aria-label="Menu categories"></nav>
+      </div>
+    </div>
+
+    <main class="section">
+      <div class="container">
+        <aside class="menu-pdf-bar fade-in" aria-labelledby="pdf-heading">
+          <h2 id="pdf-heading">Download printable menus</h2>
+          <p style="margin-bottom: 0.75rem; color: var(--color-text-muted); font-size: 0.95rem">
+            Prefer a PDF? Download and print — interactive menu below for easy browsing.
+          </p>
+          <ul class="pdf-links" id="pdf-links"></ul>
+        </aside>
+
+        <div id="menu-sections"></div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script type="module" src="/src/js/menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "Gavino's Pizzeria and Restaurant",
+  "phone": "(865) 200-5571",
+  "phoneTel": "+18652005571",
+  "address": {
+    "street": "5211 Kingston Pike",
+    "city": "Knoxville",
+    "state": "TN",
+    "zip": "37919",
+    "full": "5211 Kingston Pike, Knoxville, TN 37919"
+  },
+  "mapsUrl": "https://maps.google.com/maps?q=5211+Kingston+Pike+Knoxville%2C+TN+37919",
+  "orderOnlineUrl": "https://order.spoton.com/6369692730409da37ab0ee8a",
+  "social": {
+    "facebook": "https://www.facebook.com/GavinosPizzeria/",
+    "instagram": "https://www.instagram.com/gavinospizzeria_knoxville/",
+    "twitter": "https://twitter.com/gavinospizzeria"
+  },
+  "applicationsEmail": ""
+}

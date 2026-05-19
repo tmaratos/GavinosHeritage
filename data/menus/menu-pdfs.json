@@ -1,0 +1,19 @@
+{
+  "links": [
+    {
+      "id": "dine-in",
+      "label": "Dine-In / To-Go Menu",
+      "file": "/assets/pdfs/menus/Gavinos-Menu.pdf"
+    },
+    {
+      "id": "lunch",
+      "label": "Lunch Menu",
+      "file": "/assets/pdfs/menus/Gavinos-Lunch-Menu-Feb-2022-PDF.pdf"
+    },
+    {
+      "id": "catering",
+      "label": "Catering Menu",
+      "file": "/assets/pdfs/menus/Gavinos-Catering-menu-March-2022-PDF.pdf"
+    }
+  ]
+}
