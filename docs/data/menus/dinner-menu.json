@@ -1,0 +1,34 @@
+{
+  "title": "Dine-In / To-Go Menu",
+  "subtitle": "Download the full PDF below, or browse highlights here.",
+  "sections": [
+    {
+      "id": "signature-pizzas",
+      "name": "Signature Pizzas",
+      "description": "Hand-tossed, stone-baked New York-style pies.",
+      "items": [
+        {
+          "name": "Cheese Pizza",
+          "description": "Classic NY-style with our house sauce and mozzarella.",
+          "price": "See PDF"
+        },
+        {
+          "name": "Margherita",
+          "description": "Fresh mozzarella, basil, and tomato.",
+          "price": "See PDF"
+        }
+      ]
+    },
+    {
+      "id": "baked-pastas",
+      "name": "Baked Pastas",
+      "items": [
+        {
+          "name": "Baked Ziti",
+          "description": "Penne, ricotta, mozzarella, and marinara.",
+          "price": "See PDF"
+        }
+      ]
+    }
+  ]
+}

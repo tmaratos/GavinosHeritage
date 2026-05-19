@@ -3,10 +3,12 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,13 +37,28 @@ jobs:
         env:
           GITHUB_PAGES: true
 
+      - name: Publish built site to docs/
+        run: |
+          rm -rf docs
+          cp -r dist docs
+          touch docs/.nojekyll
+
+      - name: Commit docs for GitHub Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git diff --staged --quiet && echo "No changes to docs" && exit 0
+          git commit -m "Deploy built site to docs [skip ci]"
+          git push
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs
 
   deploy:
-    needs: build
+    needs: build-and-publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages

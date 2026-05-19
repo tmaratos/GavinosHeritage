@@ -84,6 +84,33 @@ Menu JSON uses **placeholder** items and prices marked with `TODO` — replace w
 - Mobile: sticky header, hamburger nav, bottom **Order Online** CTA
 - Menu: tabbed Dinner / Lunch / Catering, category jump nav, card layout, PDF fallback links
 
+## GitHub Pages preview
+
+Preview URL: **https://tmaratos.github.io/Gavinos/**
+
+This project does **not** use a file named `stylings.css`. Styles live in source here:
+
+```
+src/css/main.css          — layout, header, hero, footer, mobile
+src/css/menu.css          — menu page
+src/css/employment.css    — job application form
+src/css/chalkboard.css    — homepage announcements board
+```
+
+GitHub’s file list only shows **source** files. When the site is built, Vite bundles those into `docs/assets/*.css` (generated on each deploy — you will see a `docs/` folder appear after the workflow runs).
+
+### Pages settings (required)
+
+In **Settings → Pages → Build and deployment**:
+
+1. **Source:** Deploy from a branch  
+2. **Branch:** `main`  
+3. **Folder:** `/docs`
+
+The **Deploy GitHub Pages** workflow builds the site and updates the `docs/` folder automatically on each push.
+
+If the site looks unstyled (plain black text), Pages is pointing at the repo root instead of `/docs`, or the workflow has not finished yet. Check the **Actions** tab for a green checkmark.
+
 ## Deployment
 
 Run `npm run build` and deploy the `dist/` folder to any static host (Netlify, Cloudflare Pages, S3, etc.).

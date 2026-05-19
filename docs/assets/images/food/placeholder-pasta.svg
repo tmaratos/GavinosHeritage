@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Pasta placeholder">
+  <rect width="800" height="500" fill="#045c1f"/>
+  <ellipse cx="400" cy="290" rx="180" ry="70" fill="#faf7f2" opacity="0.9"/>
+  <path d="M260 260c40-40 80-60 140-60s100 20 140 60" fill="none" stroke="#ba1912" stroke-width="10"/>
+</svg>
