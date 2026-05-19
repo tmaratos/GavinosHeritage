@@ -1,12 +1,13 @@
 import restaurantInfo from '../../data/restaurant/restaurant-info.json';
+import { assetUrl, pageUrl } from './base.js';
 
 const NAV_LINKS = [
-  { href: '/', label: 'Home', page: 'home' },
-  { href: '/about.html', label: 'About', page: 'about' },
-  { href: '/menu.html', label: 'Menus', page: 'menu' },
-  { href: '/employment.html', label: 'Apply', page: 'employment' },
-  { href: '/location.html', label: 'Location', page: 'location' },
-  { href: '/contact.html', label: 'Contact', page: 'contact' },
+  { href: pageUrl(), label: 'Home', page: 'home' },
+  { href: pageUrl('about.html'), label: 'About', page: 'about' },
+  { href: pageUrl('menu.html'), label: 'Menus', page: 'menu' },
+  { href: pageUrl('employment.html'), label: 'Apply', page: 'employment' },
+  { href: pageUrl('location.html'), label: 'Location', page: 'location' },
+  { href: pageUrl('contact.html'), label: 'Contact', page: 'contact' },
 ];
 
 function currentPage() {
@@ -15,13 +16,13 @@ function currentPage() {
 
 function logoMarkup() {
   return `
-    <a href="/" class="logo-link" aria-label="${restaurantInfo.name} — Home">
+    <a href="${pageUrl()}" class="logo-link" aria-label="${restaurantInfo.name} — Home">
       <img
-        src="/assets/images/logo/logo.png"
+        src="${assetUrl('assets/images/logo/logo.png')}"
         alt="Gavino's Restaurant Pizzeria"
         width="200"
         height="80"
-        onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='/assets/images/logo/logo.svg'}else{this.hidden=true;this.nextElementSibling.hidden=false}"
+        onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='${assetUrl('assets/images/logo/logo.svg')}'}else{this.hidden=true;this.nextElementSibling.hidden=false}"
       />
       <span class="logo-fallback" hidden>
         <span class="logo-g">GAV</span><span class="logo-r">I</span><span class="logo-g">NO</span><span class="logo-r">'</span><span class="logo-g">S</span>

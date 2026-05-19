@@ -1,4 +1,5 @@
 import { renderSiteChrome } from './layout.js';
+import { assetUrl } from './base.js';
 import dinnerMenu from '../../data/menus/dinner-menu.json';
 import lunchMenu from '../../data/menus/lunch-menu.json';
 import cateringMenu from '../../data/menus/catering-menu.json';
@@ -116,9 +117,9 @@ function renderPdfLinks() {
   const list = document.getElementById('pdf-links');
   if (!list) return;
 
-  list.innerHTML = menuPdfs.downloads
+  list.innerHTML = (menuPdfs.links || menuPdfs.downloads || [])
     .map((pdf) => {
-      const href = pdf.legacyUrl || pdf.file;
+      const href = pdf.legacyUrl || assetUrl(String(pdf.file).replace(/^\//, ''));
       return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${pdf.label}</a></li>`;
     })
     .join('');

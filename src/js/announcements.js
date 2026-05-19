@@ -1,4 +1,5 @@
 import announcementsData from '../../data/announcements.json';
+import { assetUrl } from './base.js';
 
 const TYPE_LABELS = {
   special: 'Daily Special',
@@ -114,7 +115,8 @@ export function renderChalkboard(announcements, mount) {
 
 /** Default announcements bundled at build time (public site). */
 export function getDefaultAnnouncements() {
-  return announcementsData.announcements;
+  if (Array.isArray(announcementsData)) return announcementsData;
+  return announcementsData.announcements || [];
 }
 
 /**
@@ -135,7 +137,7 @@ export async function loadAnnouncementsForAdmin() {
   }
 
   try {
-    const response = await fetch('/data/announcements.json');
+    const response = await fetch(assetUrl('data/announcements.json'));
     if (response.ok) {
       const data = await response.json();
       return data.announcements || [];

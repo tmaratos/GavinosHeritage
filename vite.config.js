@@ -62,8 +62,11 @@ if (existsSync(resolve(rootDir, 'admin/index.html'))) {
   pageInputs.admin = resolve(rootDir, 'admin/index.html');
 }
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
 export default {
   root: rootDir,
+  base: isGitHubPages ? '/Gavinos/' : '/',
   publicDir: false,
   plugins: [serveStatic('/assets', 'assets'), serveStatic('/data', 'data'), copyStaticDirs()],
   build: {
