@@ -99,7 +99,7 @@ function buildFooter() {
         </div>
         <p class="copyright">© ${year} ${restaurantInfo.name}. All rights reserved.</p>
         <p class="site-credit">
-          Built by <a href="https://tristanmaratos.com/" target="_blank" rel="noopener noreferrer">Tristan Maratos</a>
+          built by <a href="https://tristanmaratos.com/" target="_blank" rel="noopener noreferrer">Tristan Maratos</a>
         </p>
       </div>
     </footer>

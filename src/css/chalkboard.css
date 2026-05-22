@@ -1,7 +1,7 @@
 /* Chalkboard announcements — front-counter feel, not alert banner */
 
 .chalkboard-section {
-  padding: var(--space-md) 0 var(--space-lg);
+  padding: var(--space-sm) 0;
   background: var(--color-cream);
 }
 
