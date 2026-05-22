@@ -1,16 +1,60 @@
 {
   "title": "Lunch Menu",
-  "subtitle": "Available during lunch hours — see PDF for full list and prices.",
+  "subtitle": "Monday–Friday 12pm–3pm. Full menu below — PDF available to print.",
   "sections": [
     {
       "id": "lunch-specials",
-      "name": "Lunch Specials",
+      "name": "Daily Lunch Specials",
+      "items": [
+        { "name": "Half a Hero and a House Salad", "price": "9.59", "description": "Greek salad add $1" },
+        { "name": "Spaghetti & Meatball and a Drink", "price": "8.99" },
+        { "name": "Two Slices of Pizza and a Drink", "price": "8.99" },
+        { "name": "Lunch Lasagna and a House Salad", "price": "9.99", "description": "Greek salad add $1" },
+        { "name": "One Slice and a House Salad", "price": "7.99", "description": "Greek salad add $1" }
+      ]
+    },
+    {
+      "id": "pizza-by-the-slice",
+      "name": "Pizza by the Slice",
       "items": [
         {
-          "name": "Slice & Salad Combo",
-          "description": "One slice of cheese pizza with house salad.",
-          "price": "See PDF"
+          "name": "Neapolitan Slice",
+          "description": "Thin round crust, tomato sauce & mozzarella. Toppings $0.75 each.",
+          "price": "3.79"
         }
+      ]
+    },
+    {
+      "id": "baked-pasta",
+      "name": "Baked Pasta",
+      "items": [
+        { "name": "Baked Ziti", "price": "8.99" },
+        { "name": "Cheese Tortellini", "price": "9.39" }
+      ]
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "items": [
+        { "name": "Spaghetti Tomato", "price": "7.99" },
+        { "name": "Linguini Marinara", "price": "7.99" },
+        { "name": "Garlic & Olive Oil Linguini", "price": "7.99" },
+        { "name": "Spaghetti Meat Sauce", "price": "8.99" },
+        { "name": "Spaghetti Bolognese", "price": "8.99" },
+        { "name": "Spaghetti with Sausage", "price": "8.99" },
+        { "name": "Alfredo Penne", "price": "9.99" }
+      ]
+    },
+    {
+      "id": "heroes",
+      "name": "Heroes",
+      "items": [
+        { "name": "Meatball Parmigiana", "price": "10.99" },
+        { "name": "Sausage and Peppers", "price": "10.99" },
+        { "name": "Eggplant Parmigiana", "price": "11.99" },
+        { "name": "Chicken Parmigiana", "price": "11.99" },
+        { "name": "Grilled Chicken", "price": "10.99" },
+        { "name": "Italian", "price": "10.99" }
       ]
     }
   ]

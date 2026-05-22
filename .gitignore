@@ -3,3 +3,6 @@ dist/
 .DS_Store
 *.log
 _live-*
+_scrape-*
+data/menus/_extracted/
+scripts/__pycache__/

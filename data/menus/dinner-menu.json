@@ -1,33 +1,133 @@
 {
   "title": "Dine-In / To-Go Menu",
-  "subtitle": "Download the full PDF below, or browse highlights here.",
+  "subtitle": "Browse our full menu online. Download the PDF below to print and keep at home.",
   "sections": [
     {
-      "id": "signature-pizzas",
-      "name": "Signature Pizzas",
-      "description": "Hand-tossed, stone-baked New York-style pies.",
+      "id": "appetizers",
+      "name": "Appetizers to Share",
       "items": [
-        {
-          "name": "Cheese Pizza",
-          "description": "Classic NY-style with our house sauce and mozzarella.",
-          "price": "See PDF"
-        },
-        {
-          "name": "Margherita",
-          "description": "Fresh mozzarella, basil, and tomato.",
-          "price": "See PDF"
-        }
+        { "name": "Famous Garlic Knots", "description": "6 pc or 12 pc — garlicy and cheesy", "price": "6.99 / 11.99" },
+        { "name": "Garlic Cheese Bread", "description": "Home baked loaf with mozzarella, garlic butter & Romano", "price": "9.99" },
+        { "name": "Breaded Button Mushrooms", "description": "Golden brown & crisp with garlic ranch", "price": "10.49" },
+        { "name": "Three Cheese Ravioli", "description": "Crisp fried with tomato dipping sauce", "price": "10.49" },
+        { "name": "Mozzarella Sticks", "price": "12.99" },
+        { "name": "Bruschetta", "description": "Housemade bread with tomato, garlic, basil, Romano & balsamic glaze", "price": "11.49" },
+        { "name": "Jones Beach Fries", "description": "Crispy shoestring fries", "price": "6.99" },
+        { "name": "Fried Calamari", "description": "With spicy marinara", "price": "11.49" },
+        { "name": "Caprese Salad Appetizer", "price": "12.99" },
+        { "name": "Buffalo Wings or Fingers", "description": "Mild, medium, or hot — blue cheese or ranch", "price": "13.99" }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Salads",
+      "description": "Choice of balsamic vinaigrette, ranch, bleu cheese, or wedding dressing.",
+      "items": [
+        { "name": "House Tossed", "description": "Small / Dinner", "price": "6.99 / 11.49" },
+        { "name": "Caesar", "description": "Small / Dinner", "price": "6.99 / 11.49" },
+        { "name": "Greek", "description": "Small / Dinner", "price": "7.99 / 11.99" },
+        { "name": "Cold Antipasto", "description": "Dinner — Genoa salami, smoked ham & provolone over house salad", "price": "12.49" }
       ]
     },
     {
       "id": "baked-pastas",
       "name": "Baked Pastas",
+      "description": "Served with homemade focaccia bread.",
       "items": [
-        {
-          "name": "Baked Ziti",
-          "description": "Penne, ricotta, mozzarella, and marinara.",
-          "price": "See PDF"
-        }
+        { "name": "Gavino's Lasagna", "price": "15.99" },
+        { "name": "Baked Ziti", "price": "14.99" },
+        { "name": "Manicotta", "price": "14.49" },
+        { "name": "Baked Cheese Tortellini", "price": "14.49" }
+      ]
+    },
+    {
+      "id": "gavinos-favorites",
+      "name": "Gavino's Favorites",
+      "description": "Served with homemade focaccia bread.",
+      "items": [
+        { "name": "Guytano Chicken Penne", "price": "18.99" },
+        { "name": "Penne a la Vodka", "price": "16.99" },
+        { "name": "Alfredo Penne", "price": "16.99" }
+      ]
+    },
+    {
+      "id": "traditional-favorites",
+      "name": "Traditional Favorites",
+      "description": "Served with homemade focaccia bread.",
+      "items": [
+        { "name": "Spaghetti Tomato Sauce", "price": "10.99" },
+        { "name": "Marinara Linguini", "price": "11.49" },
+        { "name": "Garlic & Olive Oil Linguini", "price": "11.49" },
+        { "name": "Spaghetti Meat Sauce or Bolognese", "price": "13.99" },
+        { "name": "Spaghetti with Meatballs or Sausage", "price": "13.99" }
+      ]
+    },
+    {
+      "id": "seafood-pasta",
+      "name": "Seafood Pasta",
+      "description": "Served with homemade focaccia bread.",
+      "items": [
+        { "name": "Clam Sauce", "description": "Garlic white wine or red sauce", "price": "18.99" },
+        { "name": "Scallops and Shrimp", "price": "20.99" },
+        { "name": "Shrimp Momma Mia", "price": "19.99" }
+      ]
+    },
+    {
+      "id": "entrees",
+      "name": "Entrees",
+      "description": "Served with homemade focaccia bread.",
+      "items": [
+        { "name": "Chicken Parmigiana", "price": "18.99" },
+        { "name": "Eggplant Parmigiana", "price": "17.99" },
+        { "name": "Veal Parmigiana", "price": "19.99" }
+      ]
+    },
+    {
+      "id": "heroes",
+      "name": "Heroes",
+      "items": [
+        { "name": "Meatball Parmigiana", "price": "13.99" },
+        { "name": "Sausage and Peppers", "price": "12.49" },
+        { "name": "Eggplant Parmigiana", "price": "12.99" },
+        { "name": "Chicken Parmigiana", "price": "14.99" },
+        { "name": "Grilled Chicken", "description": "Fresh mozzarella & balsamic", "price": "12.99" },
+        { "name": "Italian", "price": "12.99" }
+      ]
+    },
+    {
+      "id": "signature-pizzas",
+      "name": "Signature Pizzas",
+      "description": "18-inch pies.",
+      "items": [
+        { "name": "Build Your Own", "description": "3–5 toppings", "price": "27.99" },
+        { "name": "Margherita", "price": "20.99" },
+        { "name": "Calzone", "price": "11.99" },
+        { "name": "White Pizza", "price": "21.99" },
+        { "name": "BBQ Chicken Pizza", "price": "21.99" },
+        { "name": "The Original Special", "price": "26.99" }
+      ]
+    },
+    {
+      "id": "crust-styles",
+      "name": "Crust Styles",
+      "description": "18-inch pies. Add toppings $3.79 each · half topping $2.49.",
+      "items": [
+        { "name": "Neapolitan", "price": "18.99" },
+        { "name": "Grandma's", "price": "19.99" },
+        { "name": "Sicilian", "price": "19.99" },
+        { "name": "Grandpa's", "price": "19.99" }
+      ]
+    },
+    {
+      "id": "kids-menu",
+      "name": "Kids Menu",
+      "items": [
+        { "name": "Tomato Sauce with Spaghetti", "price": "6.99" },
+        { "name": "Butter & Cheese Spaghetti", "price": "5.99" },
+        { "name": "Spaghetti and a Meatball", "price": "7.99" },
+        { "name": "Chicken Fingers and Fries", "price": "7.99" },
+        { "name": "Kids Alfredo on Penne", "price": "7.99" },
+        { "name": "Spaghetti Meat Sauce or Bolognese", "price": "7.99" }
       ]
     }
   ]

@@ -15,9 +15,15 @@ const MENUS = {
 
 let activeMenuId = 'dinner';
 
-function formatPrice(price) {
+function formatPriceDisplay(price) {
   if (!price) return '';
-  return String(price).replace(/^\$/, '');
+  const value = String(price).trim();
+  if (!value || /^see\b/i.test(value)) return value;
+  if (value.includes('/') || /^from\b/i.test(value)) {
+    return value.replace(/(\d+(?:\.\d{2})?)/g, '$$$1');
+  }
+  const num = value.replace(/^\$/, '');
+  return /^\d/.test(num) ? `$${num}` : num;
 }
 
 function itemHasImage(item) {
@@ -38,7 +44,7 @@ function renderMenuItem(item) {
       <div class="menu-card__body">
         <div class="menu-card__head">
           <h3 class="menu-card__name">${item.name}</h3>
-          ${item.price ? `<span class="menu-card__price">${formatPrice(item.price)}</span>` : ''}
+          ${item.price ? `<span class="menu-card__price">${formatPriceDisplay(item.price)}</span>` : ''}
         </div>
         ${item.description ? `<p class="menu-card__description">${item.description}</p>` : ''}
       </div>

@@ -201,11 +201,7 @@
   font-size: 1.05rem;
   color: var(--color-red);
   white-space: nowrap;
-}
-
-.menu-card__price::before {
-  content: "$";
-  font-size: 0.9em;
+  text-align: right;
 }
 
 .menu-card__description {

@@ -1,16 +1,118 @@
 {
   "title": "Catering Menu",
-  "subtitle": "Feed your group — download the catering PDF for trays, pans, and pricing.",
+  "subtitle": "Tray pricing for groups and events. Download the PDF to print for planning at home.",
   "sections": [
     {
-      "id": "catering-trays",
-      "name": "Catering Trays",
+      "id": "appetizers",
+      "name": "Appetizers for Sharing",
       "items": [
-        {
-          "name": "Party Pizza Trays",
-          "description": "Full and half-sheet options for events and offices.",
-          "price": "See PDF"
-        }
+        { "name": "Famous Garlic Knots", "price": "25" },
+        { "name": "Garlic Cheese Bread", "price": "30" },
+        { "name": "Jumbo Buffalo Wings", "description": "Mild / medium / hot — celery & blue cheese or ranch", "price": "60" },
+        { "name": "Buffalo Fingers", "price": "60" },
+        { "name": "Mozzarella Sticks", "price": "50" }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Salads",
+      "items": [
+        { "name": "House Tossed", "price": "35" },
+        { "name": "Caesar", "price": "40" },
+        { "name": "Greek", "price": "45" },
+        { "name": "Cold Antipasto", "price": "50" },
+        { "name": "Insalata Caprese", "price": "50" }
+      ]
+    },
+    {
+      "id": "baked-pasta",
+      "name": "Baked Pasta",
+      "description": "Comes with homemade focaccia bread.",
+      "items": [
+        { "name": "Manicotta", "price": "45" },
+        { "name": "Baked Ziti", "price": "45" },
+        { "name": "Gavino's Lasagna", "price": "50" },
+        { "name": "Baked Cheese Tortellini", "price": "55" }
+      ]
+    },
+    {
+      "id": "gavinos-favorites",
+      "name": "Gavino's Favorites",
+      "description": "Comes with homemade focaccia bread.",
+      "items": [
+        { "name": "Guytano Chicken Penne", "price": "55" },
+        { "name": "Penne a la Vodka", "price": "50" },
+        { "name": "Alfredo Penne", "price": "55" }
+      ]
+    },
+    {
+      "id": "traditional-favorites",
+      "name": "Traditional Favorites",
+      "description": "Comes with homemade focaccia bread.",
+      "items": [
+        { "name": "Spaghetti Tomato Sauce", "price": "35" },
+        { "name": "Marinara Linguini", "price": "35" },
+        { "name": "Garlic & Olive Oil Linguini", "price": "40" },
+        { "name": "Spaghetti Meat Sauce or Bolognese", "price": "45" },
+        { "name": "Spaghetti with Meatballs or Sausage", "price": "45" }
+      ]
+    },
+    {
+      "id": "seafood-pasta",
+      "name": "Seafood Pasta",
+      "description": "Comes with homemade focaccia bread.",
+      "items": [
+        { "name": "Clam Sauce", "price": "65" },
+        { "name": "Scallops and Shrimp", "price": "75" },
+        { "name": "Shrimp Momma Mia", "price": "75" }
+      ]
+    },
+    {
+      "id": "entrees",
+      "name": "Entrees",
+      "description": "Comes with homemade focaccia bread.",
+      "items": [
+        { "name": "Chicken Parmigiana", "price": "60" },
+        { "name": "Eggplant Parmigiana", "price": "60" },
+        { "name": "Veal Parmigiana", "price": "70" }
+      ]
+    },
+    {
+      "id": "heroes",
+      "name": "Heroes",
+      "items": [
+        { "name": "Smoked Ham & Provolone", "price": "50" },
+        { "name": "Grilled Chicken", "price": "50" },
+        { "name": "Italian", "price": "50" }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        { "name": "Sautéed Baby Spinach", "price": "35" },
+        { "name": "Homemade Meatballs", "price": "45" },
+        { "name": "Mixed Vegetables", "price": "35" }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "items": [
+        { "name": "Cannoli", "price": "45" },
+        { "name": "Whole Cheesecake", "description": "From", "price": "45" },
+        { "name": "Whole Cakes", "description": "From", "price": "45" },
+        { "name": "Tiramisu", "price": "50" }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "items": [
+        { "name": "Lemonade (gallon)", "price": "8" },
+        { "name": "Sweet Tea (gallon)", "price": "6" },
+        { "name": "Unsweet Tea (gallon)", "price": "6" },
+        { "name": "Coke Products 2-liter", "price": "4" }
       ]
     }
   ]
