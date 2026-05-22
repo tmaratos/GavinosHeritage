@@ -1,6 +1,14 @@
 .employment-layout {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.employment-layout__form {
+  width: 100%;
 }
 
 .employment-intro {
@@ -8,6 +16,11 @@
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.employment-intro .employment-progress {
+  justify-content: center;
 }
 
 .employment-intro p:last-child {
@@ -252,17 +265,13 @@
 
 @media (min-width: 768px) {
   .employment-layout {
-    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
-    align-items: start;
+    max-width: 48rem;
   }
 
   .employment-progress {
-    flex-direction: column;
+    flex-wrap: wrap;
     overflow: visible;
-  }
-
-  .employment-progress__step {
-    width: 100%;
+    justify-content: center;
   }
 
   .form-grid--2 {
@@ -287,7 +296,7 @@
   .employment-actions {
     position: static;
     grid-template-columns: auto auto;
-    justify-content: start;
+    justify-content: center;
     background: none;
     padding: 0;
   }
