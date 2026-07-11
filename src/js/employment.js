@@ -22,6 +22,8 @@ const SECTIONS = [
   { id: 'signature', label: 'Signature' },
 ];
 
+const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+
 function populateStates() {
   const select = document.getElementById('state');
   if (!select) return;
@@ -34,6 +36,61 @@ function populateStates() {
   });
 }
 
+function getSectionElements() {
+  return SECTIONS.map(({ id }) => document.getElementById(`section-${id}`)).filter(Boolean);
+}
+
+function setActiveProgress(sectionId) {
+  document.querySelectorAll('.employment-progress__step').forEach((step) => {
+    const href = step.getAttribute('href')?.slice(1);
+    step.classList.toggle('is-active', href === sectionId);
+  });
+
+  const activeStep = document.querySelector(`.employment-progress__step[href="#${sectionId}"]`);
+  activeStep?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+function openSection(section, { closeOthers = false, scroll = true } = {}) {
+  if (!section) return;
+
+  if (closeOthers) {
+    document.querySelectorAll('.form-section').forEach((other) => {
+      if (other !== section) {
+        other.classList.remove('is-open');
+        other.querySelector('.form-section__toggle')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  section.classList.add('is-open');
+  section.querySelector('.form-section__toggle')?.setAttribute('aria-expanded', 'true');
+  setActiveProgress(section.id);
+
+  if (scroll) {
+    const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80;
+    const progressBar = document.querySelector('.employment-progress-bar');
+    const extra = progressBar?.offsetHeight || 0;
+    const top = section.getBoundingClientRect().top + window.scrollY - offset - extra - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+}
+
+function closeSection(section) {
+  section.classList.remove('is-open');
+  section.querySelector('.form-section__toggle')?.setAttribute('aria-expanded', 'false');
+}
+
+function toggleSection(section) {
+  const isOpen = section.classList.contains('is-open');
+
+  if (isOpen) {
+    closeSection(section);
+    return;
+  }
+
+  openSection(section, { closeOthers: isMobile(), scroll: true });
+}
+
 function renderProgress() {
   const mount = document.getElementById('form-progress');
   if (!mount) return;
@@ -44,38 +101,92 @@ function renderProgress() {
   ).join('');
 }
 
-function bindSectionToggles() {
-  const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+function addSectionNavButtons() {
+  getSectionElements().forEach((section, index) => {
+    const body = section.querySelector('.form-section__body');
+    if (!body || body.querySelector('.employment-section-nav')) return;
 
+    const prev = SECTIONS[index - 1];
+    const next = SECTIONS[index + 1];
+
+    const nav = document.createElement('div');
+    nav.className = 'employment-section-nav';
+    nav.innerHTML = `
+      ${prev ? `<button type="button" class="btn btn--outline" data-goto="${prev.id}">← ${prev.label}</button>` : '<span></span>'}
+      ${next ? `<button type="button" class="btn btn--secondary" data-goto="${next.id}">${next.label} →</button>` : ''}
+    `;
+    body.appendChild(nav);
+  });
+
+  document.querySelectorAll('[data-goto]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = document.getElementById(`section-${button.dataset.goto}`);
+      openSection(target, { closeOthers: isMobile(), scroll: true });
+    });
+  });
+}
+
+function bindSectionToggles() {
   document.querySelectorAll('.form-section').forEach((section) => {
     const toggle = section.querySelector('.form-section__toggle');
     if (!toggle) return;
 
-    toggle.addEventListener('click', () => {
-      if (!isMobile()) return;
-
-      const open = section.classList.contains('is-open');
-      document.querySelectorAll('.form-section').forEach((other) => {
-        other.classList.remove('is-open');
-        other.querySelector('.form-section__toggle')?.setAttribute('aria-expanded', 'false');
-      });
-
-      if (!open) {
-        section.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+    toggle.addEventListener('click', () => toggleSection(section));
   });
 
   document.querySelectorAll('.employment-progress__step').forEach((step) => {
     step.addEventListener('click', (event) => {
-      if (!isMobile()) return;
       event.preventDefault();
       const id = step.getAttribute('href')?.slice(1);
       const section = id ? document.getElementById(id) : null;
-      section?.querySelector('.form-section__toggle')?.click();
+      openSection(section, { closeOthers: isMobile(), scroll: true });
     });
+  });
+}
+
+function bindSubsectionToggles() {
+  document.querySelectorAll('.form-subsection').forEach((subsection, index) => {
+    const heading = subsection.querySelector('h3');
+    if (!heading || subsection.dataset.enhanced) return;
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'form-subsection__toggle';
+    toggle.textContent = heading.textContent;
+    heading.replaceWith(toggle);
+
+    const content = document.createElement('div');
+    content.className = 'form-subsection__content';
+    while (toggle.nextSibling) {
+      content.appendChild(toggle.nextSibling);
+    }
+    subsection.appendChild(content);
+
+    toggle.addEventListener('click', () => {
+      if (!isMobile()) return;
+      subsection.classList.toggle('is-open');
+    });
+
+    if (isMobile() && index > 0) {
+      subsection.classList.remove('is-open');
+    } else if (isMobile()) {
+      subsection.classList.add('is-open');
+    } else {
+      subsection.classList.add('is-open');
+    }
+
+    subsection.dataset.enhanced = 'true';
+  });
+}
+
+function initSectionState() {
+  const sections = getSectionElements();
+  sections.forEach((section, index) => {
+    if (index === 0) {
+      openSection(section, { closeOthers: false, scroll: false });
+    } else {
+      closeSection(section);
+    }
   });
 }
 
@@ -174,6 +285,9 @@ function bindForm() {
     if (!form.checkValidity()) {
       const firstInvalid = form.querySelector(':invalid');
       if (firstInvalid) {
+        const section = firstInvalid.closest('.form-section');
+        if (section) openSection(section, { closeOthers: isMobile(), scroll: true });
+
         const field = firstInvalid.closest('.form-field') || firstInvalid.closest('fieldset');
         if (field) markFieldError(field, 'This field is required.');
         firstInvalid.focus();
@@ -192,6 +306,7 @@ function bindForm() {
       setStatus(formConfig.successMessage, 'success');
       form.reset();
       bindConditionalFields();
+      initSectionState();
     } catch (error) {
       console.error(error);
       setStatus(formConfig.errorMessage, 'error');
@@ -206,6 +321,9 @@ renderSiteChrome();
 initChalkboard();
 populateStates();
 renderProgress();
+initSectionState();
+bindSubsectionToggles();
+addSectionNavButtons();
 bindSectionToggles();
 bindConditionalFields();
 bindForm();
