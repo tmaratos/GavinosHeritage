@@ -158,7 +158,29 @@ body[data-page="menu"] .menu-main {
 .menu-section__header {
   margin-bottom: var(--space-sm);
   padding-bottom: var(--space-xs);
-  border-bottom: 3px solid var(--color-red);
+  border-bottom: none;
+}
+
+.menu-section__header h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+}
+
+.menu-section__header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-red);
+  border-radius: 2px;
+  opacity: 0.9;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3 Q12.5 0 25 3 T50 3 T75 3 T100 3' stroke='black' stroke-width='6' fill='none'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3 Q12.5 0 25 3 T50 3 T75 3 T100 3' stroke='black' stroke-width='6' fill='none'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
 }
 
 #menu-sections {
@@ -185,15 +207,17 @@ body[data-page="menu"] .menu-main {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
-  background: var(--color-white);
+  background: var(--color-cream);
+  border: 2px double var(--color-green);
   border-radius: var(--radius-md);
   padding: var(--space-md);
   box-shadow: var(--shadow-card);
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), transform var(--transition);
 }
 
 .menu-card:hover {
   box-shadow: 0 12px 36px rgba(4, 92, 31, 0.14);
+  transform: translateY(-2px);
 }
 
 .menu-card--has-image {
@@ -237,11 +261,13 @@ body[data-page="menu"] .menu-main {
 
 .menu-card__price {
   flex-shrink: 0;
+  font-family: var(--font-chalk);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--color-red);
   white-space: nowrap;
   text-align: right;
+  text-shadow: 0 0 1px rgba(186, 25, 18, 0.15);
 }
 
 .menu-card__description {

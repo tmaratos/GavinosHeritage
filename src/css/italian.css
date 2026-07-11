@@ -1,0 +1,216 @@
+/* Italian-American trattoria atmosphere — accents only; brand colors unchanged */
+
+/* Tricolor structural bands */
+.tricolor-stripe {
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--tricolor-green) 0%,
+    var(--tricolor-green) 33.33%,
+    var(--tricolor-white) 33.33%,
+    var(--tricolor-white) 66.66%,
+    var(--tricolor-red) 66.66%,
+    var(--tricolor-red) 100%
+  );
+  flex-shrink: 0;
+}
+
+.site-header .tricolor-stripe {
+  display: block;
+}
+
+/* Section dividers — ornamental flourish between homepage blocks */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.35rem var(--container-gutter);
+  color: var(--color-green);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 8rem;
+  height: 1px;
+  background: linear-gradient(
+    to var(--divider-dir, right),
+    transparent,
+    rgba(3, 130, 42, 0.35) 50%,
+    transparent
+  );
+}
+
+.section-divider::after {
+  --divider-dir: left;
+}
+
+.section-divider__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Italian accent typography */
+.italian-tagline,
+.page-hero__tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--color-gold);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.page-hero__tagline {
+  opacity: 0.92;
+}
+
+.section__tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-red);
+  margin: 0 0 0.5rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 var(--space-sm);
+  width: 100%;
+}
+
+/* Kitchen band — From our kitchen */
+.kitchen-band {
+  background: var(--color-cream);
+  background-image: var(--texture-linen);
+  padding-block: var(--section-y);
+}
+
+.kitchen-band__header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.kitchen-band__header h2 {
+  margin-bottom: 0.25rem;
+}
+
+.kitchen-band__header p {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.kitchen-band__grid {
+  display: grid;
+  gap: var(--space-md);
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.kitchen-band__item {
+  text-align: center;
+}
+
+.kitchen-band__image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  background: var(--color-green-dark) center / cover no-repeat;
+  box-shadow: var(--shadow-card);
+  border: 3px double var(--color-green);
+  margin-bottom: var(--space-sm);
+}
+
+.kitchen-band__image--pizza {
+  background-image: url("../../assets/images/food/gavinos-cropped-20.jpg");
+}
+
+.kitchen-band__image--pasta {
+  background-image: url("../../assets/images/food/DSC_7081.jpg");
+}
+
+.kitchen-band__image--famiglia {
+  background-image: url("../../assets/images/food/8.jpg");
+}
+
+.kitchen-band__label {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-green-dark);
+  margin: 0;
+}
+
+.kitchen-band__label span {
+  color: var(--color-red);
+}
+
+/* Quick bar Ordina label (desktop) */
+.quick-bar__ordina {
+  display: none;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.8em;
+  opacity: 0.9;
+  margin-right: 0.35rem;
+}
+
+/* Visit section linen overlay */
+.section--green.visit-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section--green.visit-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--texture-linen);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.section--green.visit-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Map storefront frame */
+.map-frame {
+  position: relative;
+  padding: 0.5rem;
+  background: linear-gradient(145deg, #5c3d2e 0%, #4a3024 50%, #3d281e 100%);
+  border-radius: var(--radius-md);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.map-frame .map-embed {
+  border-radius: calc(var(--radius-md) - 4px);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  min-height: clamp(200px, 30vh, 280px);
+}
+
+@media (min-width: 768px) {
+  .kitchen-band__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quick-bar__ordina {
+    display: inline;
+  }
+}

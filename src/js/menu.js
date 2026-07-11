@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/italian.css';
 import '../css/menu.css';
 import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
@@ -74,7 +75,7 @@ function renderMenu(menu) {
 
   document.getElementById('menu-page-title').textContent = menu.title;
   document.getElementById('menu-page-subtitle').textContent =
-    menu.subtitle || '';
+    menu.subtitle || 'Dal forno alla tavola';
 
   mount.innerHTML = menu.sections.map(renderSection).join('');
   renderCategoryNav(menu);

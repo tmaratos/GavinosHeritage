@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -48,7 +48,7 @@
         </div>
         <div class="hero__overlay"></div>
         <div class="hero__content container">
-          <p class="hero__eyebrow fade-in is-visible">Gavino's Pizzeria &amp; Restaurant</p>
+          <p class="hero__eyebrow fade-in is-visible">Benvenuti · Gavino's</p>
           <h1 class="fade-in is-visible">Authentic New York Pizza in Knoxville</h1>
           <p class="hero__lead fade-in is-visible">
             From Ozone Park in the 60s and Long Island in the 70s to the best pizzerias of New York
@@ -90,16 +90,52 @@
             href="https://order.spoton.com/6369692730409da37ab0ee8a"
             target="_blank"
             rel="noopener noreferrer"
-            >Order online</a
+            ><span class="quick-bar__ordina" aria-hidden="true">Ordina</span> Order online</a
           >
         </div>
       </section>
 
       <div id="chalkboard-mount"></div>
 
+      <div class="section-divider" aria-hidden="true">
+        <svg class="section-divider__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2zm0 10l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+        </svg>
+      </div>
+
+      <section class="kitchen-band" aria-labelledby="kitchen-heading">
+        <div class="container">
+          <div class="kitchen-band__header fade-in">
+            <h2 id="kitchen-heading">From Our Kitchen</h2>
+            <p>Pizza · Pasta · Famiglia</p>
+          </div>
+          <div class="kitchen-band__grid">
+            <div class="kitchen-band__item fade-in">
+              <div class="kitchen-band__image kitchen-band__image--pizza" role="img" aria-label="Fresh pizza from the oven"></div>
+              <p class="kitchen-band__label"><span>Pizza</span></p>
+            </div>
+            <div class="kitchen-band__item fade-in">
+              <div class="kitchen-band__image kitchen-band__image--pasta" role="img" aria-label="Homemade pasta"></div>
+              <p class="kitchen-band__label"><span>Pasta</span></p>
+            </div>
+            <div class="kitchen-band__item fade-in">
+              <div class="kitchen-band__image kitchen-band__image--famiglia" role="img" aria-label="Family at Gavino's"></div>
+              <p class="kitchen-band__label"><span>Famiglia</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true">
+        <svg class="section-divider__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2zm0 10l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+        </svg>
+      </div>
+
       <section class="section section--white" aria-labelledby="story-heading">
         <div class="container">
           <div class="section__header fade-in">
+            <p class="section__tagline">Cucina della famiglia</p>
             <h2 id="story-heading">Great Food. Great Service. A Great Smile.</h2>
             <p>
               The best ingredients and the heart of a great team — that's the Gavino's you know and
@@ -135,7 +171,13 @@
         </div>
       </section>
 
-      <section class="section section--green" aria-labelledby="visit-heading">
+      <div class="section-divider" aria-hidden="true">
+        <svg class="section-divider__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2zm0 10l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+        </svg>
+      </div>
+
+      <section class="section section--green visit-section" aria-labelledby="visit-heading">
         <div class="container">
           <div class="section__header fade-in">
             <h2 id="visit-heading">Visit Us in Bearden</h2>
@@ -166,14 +208,16 @@
               </div>
             </div>
             <div class="visit-layout__map fade-in">
-              <iframe
-                class="map-embed"
-                title="Gavino's Pizzeria map"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
-              ></iframe>
+              <div class="map-frame">
+                <iframe
+                  class="map-embed"
+                  title="Gavino's Pizzeria map"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

@@ -65,12 +65,14 @@ function buildHeader(active) {
         </div>
       </nav>
     </header>
+    <div class="tricolor-stripe" aria-hidden="true"></div>
   `;
 }
 
 function buildFooter() {
   const year = new Date().getFullYear();
   return `
+    <div class="tricolor-stripe tricolor-stripe--footer" aria-hidden="true"></div>
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
@@ -98,6 +100,7 @@ function buildFooter() {
             </div>
           </div>
         </div>
+        <p class="footer-tagline">Buon appetito</p>
         <p class="copyright">© ${year} ${restaurantInfo.name}. All rights reserved.</p>
         <p class="site-credit">
           built by <a href="https://tristanmaratos.com/" target="_blank" rel="noopener noreferrer">Tristan Maratos</a>

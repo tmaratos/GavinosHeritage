@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/italian.css';
 import '../css/chalkboard.css';
 import '../css/admin.css';
 import { injectFavicon } from './favicon.js';

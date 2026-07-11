@@ -50,8 +50,31 @@
 }
 
 .chalkboard__header {
+  position: relative;
   text-align: center;
   margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.chalkboard__header::before {
+  content: "";
+  position: absolute;
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(12rem, 60%);
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    rgba(3, 130, 42, 0.35) 0%,
+    rgba(3, 130, 42, 0.35) 33%,
+    rgba(255, 255, 255, 0.25) 33%,
+    rgba(255, 255, 255, 0.25) 66%,
+    rgba(186, 25, 18, 0.35) 66%,
+    rgba(186, 25, 18, 0.35) 100%
+  );
+  border-radius: 2px;
+  opacity: 0.6;
+  filter: blur(0.5px);
 }
 
 .chalkboard__title {

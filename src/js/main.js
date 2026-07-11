@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/italian.css';
 import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
 import { initChalkboard } from './announcements.js';
