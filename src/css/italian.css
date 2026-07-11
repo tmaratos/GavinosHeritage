@@ -205,6 +205,61 @@
   min-height: clamp(200px, 30vh, 280px);
 }
 
+/* Inner pages — linen content band (matches kitchen-band) */
+.section--linen {
+  background: var(--color-cream);
+  background-image: var(--texture-linen);
+}
+
+/* Trattoria prose card (about) */
+.prose article {
+  background: var(--color-white);
+  border: 3px double var(--color-green);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+}
+
+.prose h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  margin-bottom: var(--space-sm);
+}
+
+.prose h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-red);
+  border-radius: 2px;
+  opacity: 0.9;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3 Q12.5 0 25 3 T50 3 T75 3 T100 3' stroke='black' stroke-width='6' fill='none'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3 Q12.5 0 25 3 T50 3 T75 3 T100 3' stroke='black' stroke-width='6' fill='none'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+}
+
+/* Location info blocks — trattoria frame */
+.info-block--light {
+  border: 3px double var(--color-green);
+  box-shadow: var(--shadow-card);
+  background-image: var(--texture-linen);
+}
+
+/* Menu toolbar — linen texture */
+.menu-toolbar {
+  background-image: var(--texture-linen);
+}
+
+body[data-page="menu"] .menu-main {
+  background: var(--color-cream);
+  background-image: var(--texture-linen);
+}
+
 @media (min-width: 768px) {
   .kitchen-band__grid {
     grid-template-columns: repeat(3, 1fr);
