@@ -3,19 +3,26 @@
 /* Chalkboard announcements — same front-counter look on mobile and desktop */
 
 .chalkboard-section {
-  padding: var(--space-sm) 0;
-  background: var(--color-cream);
+  padding: 0;
+  background: #2a3328;
+}
+
+.chalkboard-section .container {
+  max-width: none;
+  width: 100%;
+  padding: 0;
 }
 
 .chalkboard {
-  max-width: 42rem;
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .chalkboard__frame {
   position: relative;
-  padding: clamp(0.85rem, 3vw, 1.5rem);
-  border-radius: var(--radius-md);
+  padding: clamp(1rem, 3vw, 1.75rem) var(--container-gutter);
+  border-radius: 0;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 40%),
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.06), transparent 45%),
@@ -23,10 +30,7 @@
     #2a3328;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -2px 8px rgba(0, 0, 0, 0.35),
-    0 0 0 4px #5c3d2e,
-    0 0 0 7px #4a3024,
-    0 10px 28px rgba(4, 92, 31, 0.18);
+    inset 0 -2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .chalkboard__frame::before {
@@ -43,9 +47,10 @@
 .chalkboard__header {
   position: relative;
   text-align: center;
-  margin-bottom: var(--space-sm);
+  margin: 0 auto var(--space-sm);
   padding-bottom: var(--space-sm);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+  max-width: var(--max-width);
 }
 
 .chalkboard__eyebrow {
@@ -73,6 +78,8 @@
   position: relative;
   display: grid;
   gap: var(--space-sm);
+  max-width: var(--max-width);
+  margin-inline: auto;
 }
 
 .chalkboard-item {
@@ -144,32 +151,15 @@
 }
 
 @media (max-width: 767px) {
-  .chalkboard {
-    max-width: none;
-  }
-
   .chalkboard__frame {
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      inset 0 -2px 8px rgba(0, 0, 0, 0.35),
-      0 0 0 3px #5c3d2e,
-      0 0 0 5px #4a3024,
-      0 8px 20px rgba(4, 92, 31, 0.16);
+    padding-inline: var(--container-gutter);
   }
 }
 
 @media (min-width: 768px) {
-  .chalkboard-section .container {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .chalkboard {
-    margin-inline: 0;
-  }
-
   .chalkboard__items {
     gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
 
   .chalkboard-item {
