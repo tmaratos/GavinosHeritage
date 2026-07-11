@@ -54,20 +54,28 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
-function renderAnnouncementItem(item) {
-  const typeLabel = getTypeLabel(item.type);
+function renderAnnouncementItem(item, index) {
+  const typeScribble =
+    item.type && item.type !== 'general'
+      ? `<span class="chalkboard-note__scribble">${escapeHtml(getTypeLabel(item.type))}</span>`
+      : '';
+
   const button =
     item.buttonText && item.buttonLink
-      ? `<a class="chalkboard-item__cta" href="${escapeHtml(item.buttonLink)}"${
+      ? `<a class="chalkboard-note__link" href="${escapeHtml(item.buttonLink)}"${
           item.buttonLink.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''
-        }>${escapeHtml(item.buttonText)}</a>`
+        }>→ ${escapeHtml(item.buttonText)}</a>`
       : '';
 
   return `
-    <article class="chalkboard-item chalkboard-item--${escapeHtml(item.type)}" data-announcement-id="${escapeHtml(item.id)}">
-      <p class="chalkboard-item__type">${escapeHtml(typeLabel)}</p>
-      <h3 class="chalkboard-item__title">${escapeHtml(item.title)}</h3>
-      <p class="chalkboard-item__body">${escapeHtml(item.body)}</p>
+    <article
+      class="chalkboard-note chalkboard-note--${escapeHtml(item.type)}"
+      data-announcement-id="${escapeHtml(item.id)}"
+      style="--note-tilt: ${index % 3 === 0 ? '-0.6deg' : index % 3 === 1 ? '0.45deg' : '-0.15deg'}"
+    >
+      ${typeScribble}
+      <h3 class="chalkboard-note__headline">${escapeHtml(item.title)}</h3>
+      <p class="chalkboard-note__lines">${escapeHtml(item.body)}</p>
       ${button}
     </article>
   `;
@@ -86,14 +94,14 @@ export function renderChalkboard(announcements, mount) {
   mount.hidden = false;
   mount.innerHTML = `
     <section class="chalkboard-section" aria-label="Today's announcements">
-      <div class="container">
-        <div class="chalkboard">
-          <div class="chalkboard__frame">
+      <div class="chalkboard">
+        <div class="chalkboard__frame">
+          <div class="chalkboard__inner">
             <header class="chalkboard__header">
-              <p class="chalkboard__eyebrow">From our kitchen</p>
               <h2 class="chalkboard__title">Today's Board</h2>
+              <div class="chalkboard__title-line" aria-hidden="true"></div>
             </header>
-            <div class="chalkboard__items">
+            <div class="chalkboard__board">
               ${active.map(renderAnnouncementItem).join('')}
             </div>
           </div>
