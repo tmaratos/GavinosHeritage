@@ -1,7 +1,7 @@
 import { assetUrl } from './base.js';
 
 const FAVICON_PATHS = {
-  svg: 'assets/images/logo/favicon.svg',
+  ico: 'assets/images/logo/favicon.ico',
   png: 'assets/images/logo/favicon.png',
   apple: 'assets/images/logo/apple-touch-icon.png',
 };
@@ -11,7 +11,7 @@ export function injectFavicon() {
 
   const head = document.head;
   const links = [
-    { rel: 'icon', type: 'image/svg+xml', href: FAVICON_PATHS.svg },
+    { rel: 'icon', type: 'image/x-icon', href: FAVICON_PATHS.ico },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: FAVICON_PATHS.png },
     { rel: 'apple-touch-icon', sizes: '180x180', href: FAVICON_PATHS.apple },
   ];
