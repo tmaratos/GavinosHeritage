@@ -1,5 +1,6 @@
 import restaurantInfo from '../../data/restaurant/restaurant-info.json';
 import { assetUrl, pageUrl } from './base.js';
+import { injectFavicon } from './favicon.js';
 
 const NAV_LINKS = [
   { href: pageUrl(), label: 'Home', page: 'home' },
@@ -115,6 +116,7 @@ function buildStickyCta() {
 }
 
 export function renderSiteChrome() {
+  injectFavicon();
   const active = currentPage();
 
   const headerMount = document.getElementById('site-header');

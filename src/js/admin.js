@@ -1,6 +1,7 @@
 import '../css/main.css';
 import '../css/chalkboard.css';
 import '../css/admin.css';
+import { injectFavicon } from './favicon.js';
 import {
   isAdminAuthenticated,
   setAdminAuthenticated,
@@ -31,6 +32,7 @@ let hours = null;
 
 const app = document.getElementById('admin-app');
 document.body.classList.add('admin-body');
+injectFavicon();
 
 function escapeHtml(value) {
   return String(value)
