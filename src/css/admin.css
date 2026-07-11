@@ -1,0 +1,191 @@
+/* Gavino's CMS admin */
+
+.admin-body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-cream);
+}
+
+.admin-login,
+.admin-shell {
+  width: min(100% - 2rem, 52rem);
+  margin: 0 auto;
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+.admin-login__card,
+.admin-panel {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+}
+
+.admin-login h1,
+.admin-shell h1 {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.75rem;
+}
+
+.admin-login p,
+.admin-panel__lead {
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md);
+}
+
+.admin-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: var(--space-md);
+}
+
+.admin-field label {
+  font-weight: 600;
+  color: var(--color-green-dark);
+  font-size: 0.95rem;
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  background: var(--color-cream);
+}
+
+.admin-field textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.admin-field--inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-field--inline input[type='checkbox'] {
+  width: auto;
+  min-height: auto;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: var(--space-md);
+}
+
+.admin-tab {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-green-dark);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.admin-tab.is-active {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.admin-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.admin-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  background: var(--color-cream);
+}
+
+.admin-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.admin-card__head h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.admin-status {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.admin-status--success {
+  background: rgba(3, 130, 42, 0.12);
+  color: var(--color-green-dark);
+}
+
+.admin-status--error {
+  background: rgba(186, 25, 18, 0.1);
+  color: var(--color-red-dark);
+}
+
+.admin-preview {
+  margin-top: var(--space-md);
+}
+
+.admin-preview .chalkboard-section {
+  padding: 0;
+  background: transparent;
+}
+
+.admin-help {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: var(--space-md) 0 0;
+  padding: var(--space-md);
+  background: rgba(3, 130, 42, 0.06);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-green);
+}
+
+.admin-hours-row {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 640px) {
+  .admin-hours-row {
+    grid-template-columns: 1fr;
+  }
+}

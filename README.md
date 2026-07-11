@@ -11,6 +11,8 @@ npm run dev
 
 Open **http://localhost:5173/**
 
+CMS admin: **http://localhost:5173/admin.html** (password: `gavinos-admin`)
+
 Preview exactly how GitHub Pages will look:
 
 ```bash
@@ -26,7 +28,8 @@ There is no `stylings.css`. Styles are in:
 - `src/css/main.css` — site layout, header, footer, mobile
 - `src/css/menu.css` — menu page
 - `src/css/employment.css` — job application
-- `src/css/chalkboard.css` — homepage board
+- `src/css/chalkboard.css` — chalkboard on all pages (mobile + desktop)
+- `src/css/admin.css` — CMS admin panel
 
 Vite bundles these into `dist/assets/*.css` when you build. **Do not deploy the repo root to the web** — only the built `dist/` folder.
 
@@ -46,16 +49,35 @@ If the site looks like plain black text, Pages is still serving source files fro
 
 When ready to replace the live site, point **gavinospizzeria.com** DNS at your host and deploy the `dist/` folder (or connect the custom domain in GitHub Pages settings).
 
-## Content updates
+## Content management (CMS)
+
+Open **`/admin.html`** on the site to manage:
+
+| Tab | What you can edit |
+|-----|-------------------|
+| **Chalkboard** | Announcements shown on every page (mobile + desktop chalkboard design) |
+| **Restaurant** | Phone, address, social, **job application email** |
+| **Hours** | Weekly schedule and footer note |
+| **Publish** | Download updated JSON files to commit and deploy |
+
+**Default password:** `gavinos-admin` — change the hash in `data/admin/config.json` for production.
+
+**Publishing workflow:** Save in each tab → **Download all content files** → replace files in `data/` → commit and push to `main`.
+
+## Content files (manual edit)
 
 | What | File |
 |------|------|
 | Hours | `data/restaurant/restaurant-hours.json` |
-| Phone, address, social | `data/restaurant/restaurant-info.json` |
+| Phone, address, social, emails | `data/restaurant/restaurant-info.json` |
+| Chalkboard | `data/announcements.json` |
 | Menu PDF links | `data/menus/menu-pdfs.json` |
 | PDF files | `assets/pdfs/menus/` |
 | Logo & images | `assets/images/` |
-| Job application email | `data/restaurant/restaurant-info.json` → `applicationsEmail` |
+
+## Job applications
+
+Applications submit to the **applications email** in `data/restaurant/restaurant-info.json` via [FormSubmit.co](https://formsubmit.co). The first submission triggers a confirmation email to that address — click the link to activate.
 
 ## Build for production
 

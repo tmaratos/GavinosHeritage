@@ -1,4 +1,4 @@
-import announcementsData from '../../data/announcements.json';
+import { loadAnnouncements } from './site-content.js';
 import { assetUrl } from './base.js';
 
 const TYPE_LABELS = {
@@ -26,11 +26,6 @@ export function getTypeLabel(type) {
   return TYPE_LABELS[type] || TYPE_LABELS.general;
 }
 
-/**
- * Returns announcements that are active and within optional date range.
- * @param {Announcement[]} announcements
- * @param {Date} [now]
- */
 export function filterActiveAnnouncements(announcements, now = new Date()) {
   const today = now.getTime();
 
@@ -78,11 +73,6 @@ function renderAnnouncementItem(item) {
   `;
 }
 
-/**
- * Renders the chalkboard section into a mount element.
- * @param {Announcement[]} announcements
- * @param {HTMLElement|null} mount
- */
 export function renderChalkboard(announcements, mount) {
   if (!mount) return;
 
@@ -113,51 +103,29 @@ export function renderChalkboard(announcements, mount) {
   `;
 }
 
-/** Default announcements bundled at build time (public site). */
-export function getDefaultAnnouncements() {
-  if (Array.isArray(announcementsData)) return announcementsData;
-  return announcementsData.announcements || [];
+export async function initChalkboard() {
+  const mount = document.getElementById('chalkboard-mount');
+  if (!mount) return;
+  const announcements = await loadAnnouncements();
+  renderChalkboard(announcements, mount);
 }
 
-/**
- * Loads announcements for admin: localStorage draft overrides bundled JSON.
- * Production should replace this with an authenticated API.
- */
-export async function loadAnnouncementsForAdmin() {
-  const stored = localStorage.getItem('gavinos-announcements-draft');
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed.announcements)) {
-        return parsed.announcements;
-      }
-    } catch {
-      /* fall through to bundled JSON */
-    }
-  }
+/** @deprecated use initChalkboard */
+export async function initHomepageChalkboard() {
+  return initChalkboard();
+}
 
+export async function loadAnnouncementsForAdmin() {
   try {
     const response = await fetch(assetUrl('data/announcements.json'));
     if (response.ok) {
       const data = await response.json();
-      return data.announcements || [];
+      return Array.isArray(data) ? data : data.announcements || [];
     }
   } catch {
-    /* use bundled fallback */
+    /* fall through */
   }
-
-  return getDefaultAnnouncements();
-}
-
-export function saveAnnouncementsDraft(announcements) {
-  localStorage.setItem(
-    'gavinos-announcements-draft',
-    JSON.stringify({ announcements }, null, 2),
-  );
-}
-
-export function clearAnnouncementsDraft() {
-  localStorage.removeItem('gavinos-announcements-draft');
+  return loadAnnouncements();
 }
 
 export function exportAnnouncementsJson(announcements) {
@@ -170,13 +138,4 @@ export function exportAnnouncementsJson(announcements) {
   link.download = 'announcements.json';
   link.click();
   URL.revokeObjectURL(url);
-}
-
-/**
- * Initializes the homepage chalkboard from bundled JSON.
- */
-export function initHomepageChalkboard() {
-  const mount = document.getElementById('chalkboard-mount');
-  if (!mount) return;
-  renderChalkboard(getDefaultAnnouncements(), mount);
 }

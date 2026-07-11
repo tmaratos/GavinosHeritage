@@ -21,6 +21,7 @@ const pages = {
   location: resolve(rootDir, 'location.html'),
   contact: resolve(rootDir, 'contact.html'),
   employment: resolve(rootDir, 'employment.html'),
+  admin: resolve(rootDir, 'admin.html'),
 };
 
 function serveDir(route, dirName) {

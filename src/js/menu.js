@@ -1,6 +1,8 @@
 import '../css/main.css';
 import '../css/menu.css';
+import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
+import { initChalkboard } from './announcements.js';
 import { assetUrl } from './base.js';
 import dinnerMenu from '../../data/menus/dinner-menu.json';
 import lunchMenu from '../../data/menus/lunch-menu.json';
@@ -177,6 +179,7 @@ function initFadeIn() {
 }
 
 renderSiteChrome();
+initChalkboard();
 renderPdfLinks();
 bindMenuTabs();
 renderMenu(MENUS[activeMenuId]);

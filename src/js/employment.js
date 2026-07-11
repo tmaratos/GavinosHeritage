@@ -1,8 +1,10 @@
 import '../css/main.css';
 import '../css/employment.css';
+import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
+import { initChalkboard } from './announcements.js';
+import { loadRestaurantInfo } from './site-content.js';
 import formConfig from '../../data/employment/form-config.json';
-import restaurantInfo from '../../data/restaurant/restaurant-info.json';
 
 const US_STATES = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS',
@@ -116,10 +118,11 @@ function markFieldError(field, message) {
   field.appendChild(error);
 }
 
-function getSubmitEndpoint() {
+function getSubmitEndpoint(info) {
   if (formConfig.submitEndpoint) return formConfig.submitEndpoint;
-  if (restaurantInfo.applicationsEmail) {
-    return `https://formsubmit.co/ajax/${encodeURIComponent(restaurantInfo.applicationsEmail)}`;
+  const email = info?.applicationsEmail || info?.contactEmail;
+  if (email) {
+    return `https://formsubmit.co/ajax/${encodeURIComponent(email)}`;
   }
   return '';
 }
@@ -128,19 +131,20 @@ function serializeForm(form) {
   const data = Object.fromEntries(new FormData(form).entries());
   data._subject = `Employment Application — ${data.firstName || ''} ${data.lastName || ''}`.trim();
   data._template = 'table';
+  data._captcha = 'false';
   return data;
 }
 
 async function submitApplication(form) {
-  const endpoint = getSubmitEndpoint();
+  const info = await loadRestaurantInfo();
+  const endpoint = getSubmitEndpoint(info);
 
   if (!endpoint) {
     setStatus(
-      'Form saved locally for preview. Set applicationsEmail in data/restaurant/restaurant-info.json or submitEndpoint in data/employment/form-config.json to enable submissions.',
-      'info',
+      'Applications are not configured yet. Please call the restaurant or try again later.',
+      'error',
     );
-    console.info('Application preview payload:', serializeForm(form));
-    return true;
+    return false;
   }
 
   const response = await fetch(endpoint, {
@@ -183,7 +187,8 @@ function bindForm() {
     submitButton.textContent = 'Submitting…';
 
     try {
-      await submitApplication(form);
+      const submitted = await submitApplication(form);
+      if (!submitted) return;
       setStatus(formConfig.successMessage, 'success');
       form.reset();
       bindConditionalFields();
@@ -198,6 +203,7 @@ function bindForm() {
 }
 
 renderSiteChrome();
+initChalkboard();
 populateStates();
 renderProgress();
 bindSectionToggles();

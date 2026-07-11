@@ -1,10 +1,9 @@
 import '../css/main.css';
 import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
-import { initHomepageChalkboard } from './announcements.js';
+import { initChalkboard } from './announcements.js';
 import { initHeroCarousel } from './hero.js';
-import restaurantInfo from '../../data/restaurant/restaurant-info.json';
-import hoursData from '../../data/restaurant/restaurant-hours.json';
+import { loadRestaurantInfo, loadHours } from './site-content.js';
 
 function initFadeIn() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,10 +27,11 @@ function initFadeIn() {
   document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 }
 
-function renderHours() {
+async function renderHours() {
   const mount = document.getElementById('hours-list');
   if (!mount) return;
 
+  const hoursData = await loadHours();
   mount.innerHTML = hoursData.schedule
     .map(
       ({ days, hours }) => `
@@ -51,7 +51,9 @@ function renderHours() {
   }
 }
 
-function hydrateContact() {
+async function hydrateContact() {
+  const restaurantInfo = await loadRestaurantInfo();
+
   document.querySelectorAll('[data-phone]').forEach((el) => {
     const isQuickBar = el.classList.contains('quick-bar__item');
     el.textContent = isQuickBar ? `Call ${restaurantInfo.phone}` : restaurantInfo.phone;
@@ -60,11 +62,19 @@ function hydrateContact() {
 
   document.querySelectorAll('[data-address]').forEach((el) => {
     el.textContent = restaurantInfo.address.full;
+    if (el.tagName === 'A' && restaurantInfo.mapsUrl) el.href = restaurantInfo.mapsUrl;
+  });
+
+  document.querySelectorAll('[data-email]').forEach((el) => {
+    const email = restaurantInfo.contactEmail || restaurantInfo.applicationsEmail;
+    if (!email) return;
+    el.textContent = email;
+    if (el.tagName === 'A') el.href = `mailto:${email}`;
   });
 }
 
 renderSiteChrome();
-initHomepageChalkboard();
+initChalkboard();
 initHeroCarousel();
 renderHours();
 hydrateContact();

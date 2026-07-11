@@ -1,4 +1,6 @@
-/* Chalkboard announcements — front-counter feel, not alert banner */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+/* Chalkboard announcements — same front-counter look on mobile and desktop */
 
 .chalkboard-section {
   padding: var(--space-sm) 0;
@@ -12,7 +14,7 @@
 
 .chalkboard__frame {
   position: relative;
-  padding: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(0.85rem, 3vw, 1.5rem);
   border-radius: var(--radius-md);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 40%),
@@ -22,9 +24,9 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     inset 0 -2px 8px rgba(0, 0, 0, 0.35),
-    0 0 0 6px #5c3d2e,
-    0 0 0 10px #4a3024,
-    0 12px 32px rgba(4, 92, 31, 0.18);
+    0 0 0 4px #5c3d2e,
+    0 0 0 7px #4a3024,
+    0 10px 28px rgba(4, 92, 31, 0.18);
 }
 
 .chalkboard__frame::before {
@@ -41,14 +43,14 @@
 .chalkboard__header {
   position: relative;
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   padding-bottom: var(--space-sm);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
 }
 
 .chalkboard__eyebrow {
   margin: 0 0 0.25rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -58,7 +60,7 @@
 .chalkboard__title {
   margin: 0;
   font-family: var(--font-chalk);
-  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-size: clamp(1.4rem, 4.5vw, 2.35rem);
   font-weight: 700;
   line-height: 1.1;
   color: rgba(255, 255, 255, 0.95);
@@ -70,11 +72,11 @@
 .chalkboard__items {
   position: relative;
   display: grid;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .chalkboard-item {
-  padding: 0.85rem 0.75rem 0.75rem;
+  padding: 0.65rem 0.5rem 0.5rem;
   border-left: 3px solid var(--color-green);
 }
 
@@ -99,8 +101,8 @@
 }
 
 .chalkboard-item__type {
-  margin: 0 0 0.2rem;
-  font-size: 0.7rem;
+  margin: 0 0 0.15rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -108,9 +110,9 @@
 }
 
 .chalkboard-item__title {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   font-family: var(--font-chalk);
-  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
   font-weight: 600;
   line-height: 1.2;
   color: rgba(255, 255, 255, 0.96);
@@ -118,16 +120,16 @@
 
 .chalkboard-item__body {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.82);
 }
 
 .chalkboard-item__cta {
   display: inline-flex;
-  margin-top: 0.65rem;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
   color: var(--color-green-dark);
@@ -141,99 +143,18 @@
   color: var(--color-green-dark);
 }
 
-/* Mobile: compact announcement card, minimal height */
 @media (max-width: 767px) {
-  .chalkboard-section {
-    padding: var(--space-sm) 0;
-  }
-
   .chalkboard {
     max-width: none;
   }
 
   .chalkboard__frame {
-    padding: 0.85rem 1rem;
-    background: var(--color-white);
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-green);
-  }
-
-  .chalkboard__frame::before {
-    display: none;
-  }
-
-  .chalkboard__header {
-    text-align: left;
-    margin-bottom: 0.65rem;
-    padding-bottom: 0.5rem;
-    border-bottom-color: var(--color-border);
-  }
-
-  .chalkboard__eyebrow {
-    color: var(--color-green);
-    font-size: 0.68rem;
-  }
-
-  .chalkboard__title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    color: var(--color-green-dark);
-    text-shadow: none;
-  }
-
-  .chalkboard__items {
-    gap: 0.75rem;
-  }
-
-  .chalkboard-item {
-    padding: 0;
-    border-left: none;
-    border-top: 1px solid var(--color-border);
-    padding-top: 0.65rem;
-  }
-
-  .chalkboard-item:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  /* Keep mobile compact — show primary announcement only */
-  .chalkboard-item:nth-child(n + 2) {
-    display: none;
-  }
-
-  .chalkboard-item__type {
-    color: var(--color-text-muted);
-  }
-
-  .chalkboard-item__title {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    color: var(--color-green-dark);
-  }
-
-  .chalkboard-item__body {
-    font-size: 0.875rem;
-    line-height: 1.45;
-    color: var(--color-text-muted);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .chalkboard-item__cta {
-    margin-top: 0.45rem;
-    padding: 0.3rem 0.65rem;
-    font-size: 0.8rem;
-    background: rgba(3, 130, 42, 0.08);
-    color: var(--color-green-dark);
-  }
-
-  .chalkboard-item__cta:hover {
-    background: var(--color-green);
-    color: var(--color-white);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 -2px 8px rgba(0, 0, 0, 0.35),
+      0 0 0 3px #5c3d2e,
+      0 0 0 5px #4a3024,
+      0 8px 20px rgba(4, 92, 31, 0.16);
   }
 }
 
@@ -244,6 +165,19 @@
   }
 
   .chalkboard {
-    margin-inline: 0 0;
+    margin-inline: 0;
+  }
+
+  .chalkboard__items {
+    gap: var(--space-md);
+  }
+
+  .chalkboard-item {
+    padding: 0.85rem 0.75rem 0.75rem;
+  }
+
+  .chalkboard-item__body {
+    font-size: 0.95rem;
+    line-height: 1.55;
   }
 }
