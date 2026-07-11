@@ -2,6 +2,7 @@ import { assetUrl } from './base.js';
 import bundledInfo from '../../data/restaurant/restaurant-info.json';
 import bundledHours from '../../data/restaurant/restaurant-hours.json';
 import bundledAnnouncements from '../../data/announcements.json';
+import bundledFormConfig from '../../data/employment/form-config.json';
 
 function parseAnnouncements(data) {
   if (Array.isArray(data)) return data;
@@ -38,6 +39,16 @@ export async function loadAnnouncements() {
     /* use bundled fallback */
   }
   return parseAnnouncements(bundledAnnouncements);
+}
+
+export async function loadFormConfig() {
+  try {
+    const response = await fetch(assetUrl('data/employment/form-config.json'));
+    if (response.ok) return await response.json();
+  } catch {
+    /* use bundled fallback */
+  }
+  return { ...bundledFormConfig };
 }
 
 export function downloadJson(filename, data) {

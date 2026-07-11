@@ -4,8 +4,7 @@ import '../css/employment.css';
 import '../css/chalkboard.css';
 import { renderSiteChrome } from './layout.js';
 import { initChalkboard } from './announcements.js';
-import { loadRestaurantInfo } from './site-content.js';
-import formConfig from '../../data/employment/form-config.json';
+import { loadFormConfig, loadRestaurantInfo } from './site-content.js';
 
 const US_STATES = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS',
@@ -230,13 +229,17 @@ function markFieldError(field, message) {
   field.appendChild(error);
 }
 
-function getSubmitEndpoint(info) {
-  if (formConfig.submitEndpoint) return formConfig.submitEndpoint;
+function getSubmitEndpoint(formConfig, info) {
+  if (formConfig?.submitEndpoint) return formConfig.submitEndpoint;
   const email = info?.applicationsEmail || info?.contactEmail;
   if (email) {
     return `https://formsubmit.co/ajax/${encodeURIComponent(email)}`;
   }
   return '';
+}
+
+function isFormSubmitSuccess(result) {
+  return result?.success === true || result?.success === 'true';
 }
 
 function serializeForm(form) {
@@ -248,8 +251,8 @@ function serializeForm(form) {
 }
 
 async function submitApplication(form) {
-  const info = await loadRestaurantInfo();
-  const endpoint = getSubmitEndpoint(info);
+  const [info, formConfig] = await Promise.all([loadRestaurantInfo(), loadFormConfig()]);
+  const endpoint = getSubmitEndpoint(formConfig, info);
 
   if (!endpoint) {
     setStatus(
@@ -268,11 +271,12 @@ async function submitApplication(form) {
     body: JSON.stringify(serializeForm(form)),
   });
 
-  if (!response.ok) {
-    throw new Error(`Submit failed (${response.status})`);
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || !isFormSubmitSuccess(result)) {
+    throw new Error(result?.message || `Submit failed (${response.status})`);
   }
 
-  return true;
+  return { formConfig };
 }
 
 function bindForm() {
@@ -302,14 +306,15 @@ function bindForm() {
     submitButton.textContent = 'Submitting…';
 
     try {
-      const submitted = await submitApplication(form);
-      if (!submitted) return;
-      setStatus(formConfig.successMessage, 'success');
+      const result = await submitApplication(form);
+      if (!result) return;
+      setStatus(result.formConfig.successMessage, 'success');
       form.reset();
       bindConditionalFields();
       initSectionState();
     } catch (error) {
       console.error(error);
+      const formConfig = await loadFormConfig();
       setStatus(formConfig.errorMessage, 'error');
     } finally {
       submitButton.disabled = false;
