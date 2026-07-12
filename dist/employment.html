@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Apply to work at Gavino's Pizzeria in Knoxville — employment application."
+    />
+    <title>Employment Application | Gavino's Pizzeria and Restaurant</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-BUgTwCu4.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-B6bI0ODy.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-CuAwFmiQ.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/employment-ow-M16yo.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/announcements-3PClMU0J.js">
+    <link rel="modulepreload" crossorigin href="/assets/layout-ck3TAGA5.js">
+    <link rel="stylesheet" crossorigin href="/assets/announcements-DBnZANIm.css">
+    <link rel="stylesheet" crossorigin href="/assets/employment-nSKOL9t7.css">
+  </head>
+  <body data-page="employment">
+    <div id="site-header"></div>
+    <div id="chalkboard-mount"></div>
+
+    <header class="page-hero">
+      <div class="container">
+        <p class="page-hero__tagline">Unisciti alla famiglia</p>
+        <h1>Employment Application</h1>
+        <p>Join the Gavino's family — we're always looking for great people.</p>
+      </div>
+    </header>
+
+    <main class="section section--linen employment-page">
+      <nav class="employment-progress-bar" aria-label="Application sections">
+        <div class="container">
+          <div class="employment-progress" id="form-progress"></div>
+        </div>
+      </nav>
+
+      <div class="container employment-layout">
+        <aside class="employment-intro fade-in">
+          <p class="employment-intro__lead">
+            Required fields are marked with an asterisk (*). Prefer paper? Call
+            <a href="tel:+18652005571">(865) 200-5571</a>.
+          </p>
+        </aside>
+
+        <div class="employment-layout__form">
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+          <form class="employment-form" id="employment-form" novalidate>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" hidden aria-hidden="true" />
+
+            <section class="form-section is-open" id="section-applicant" data-section="applicant">
+              <button type="button" class="form-section__toggle" aria-expanded="true">
+                Applicant Information
+              </button>
+              <div class="form-section__body">
+                <div class="form-grid form-grid--2">
+                  <div class="form-field">
+                    <label for="firstName">First name *</label>
+                    <input id="firstName" name="firstName" required autocomplete="given-name" />
+                  </div>
+                  <div class="form-field">
+                    <label for="lastName">Last name *</label>
+                    <input id="lastName" name="lastName" required autocomplete="family-name" />
+                  </div>
+                  <div class="form-field">
+                    <label for="street">Street address *</label>
+                    <input id="street" name="street" required autocomplete="address-line1" />
+                  </div>
+                  <div class="form-field">
+                    <label for="street2">Address line 2</label>
+                    <input id="street2" name="street2" autocomplete="address-line2" />
+                  </div>
+                  <div class="form-field">
+                    <label for="city">City *</label>
+                    <input id="city" name="city" required autocomplete="address-level2" />
+                  </div>
+                  <div class="form-field">
+                    <label for="state">State *</label>
+                    <select id="state" name="state" required autocomplete="address-level1">
+                      <option value="">Select state</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="zip">ZIP code *</label>
+                    <input id="zip" name="zip" required inputmode="numeric" autocomplete="postal-code" />
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Phone *</label>
+                    <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" />
+                  </div>
+                  <div class="form-field">
+                    <label for="dateAvailable">Date available *</label>
+                    <input id="dateAvailable" name="dateAvailable" type="date" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="desiredSalary">Desired salary *</label>
+                    <input id="desiredSalary" name="desiredSalary" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="position">Position applied for *</label>
+                    <input id="position" name="position" required />
+                  </div>
+                </div>
+
+                <div class="form-grid form-grid--2" style="margin-top: var(--space-md)">
+                  <fieldset class="form-field">
+                    <legend>Are you a citizen of the United States? *</legend>
+                    <div class="radio-group">
+                      <label><input type="radio" name="usCitizen" value="Yes" required /> Yes</label>
+                      <label><input type="radio" name="usCitizen" value="No" /> No</label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="form-field">
+                    <legend>Are you authorized to work in the U.S.? *</legend>
+                    <div class="radio-group">
+                      <label><input type="radio" name="authorizedToWork" value="Yes" required /> Yes</label>
+                      <label><input type="radio" name="authorizedToWork" value="No" /> No</label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="form-field">
+                    <legend>Have you ever worked for this company? *</legend>
+                    <div class="radio-group">
+                      <label><input type="radio" name="workedBefore" value="Yes" required /> Yes</label>
+                      <label><input type="radio" name="workedBefore" value="No" /> No</label>
+                    </div>
+                  </fieldset>
+                  <div class="form-field" data-conditional="workedBefore" data-show-when="Yes">
+                    <label for="workedBeforeWhen">When?</label>
+                    <input id="workedBeforeWhen" name="workedBeforeWhen" />
+                  </div>
+                  <fieldset class="form-field">
+                    <legend>Have you ever been convicted of a felony? *</legend>
+                    <div class="radio-group">
+                      <label><input type="radio" name="felony" value="Yes" required /> Yes</label>
+                      <label><input type="radio" name="felony" value="No" /> No</label>
+                    </div>
+                    <p class="form-note">
+                      An affirmative answer will not necessarily result in disqualification for
+                      employment.
+                    </p>
+                  </fieldset>
+                  <div class="form-field" data-conditional="felony" data-show-when="Yes">
+                    <label for="felonyExplain">Please explain</label>
+                    <textarea id="felonyExplain" name="felonyExplain"></textarea>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" id="section-education" data-section="education">
+              <button type="button" class="form-section__toggle" aria-expanded="false">Education</button>
+              <div class="form-section__body">
+                <div class="form-subsection">
+                  <h3>High school</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="hsName">School name</label><input id="hsName" name="hsName" /></div>
+                    <div class="form-field"><label for="hsAddress">Address</label><input id="hsAddress" name="hsAddress" /></div>
+                    <div class="form-field"><label for="hsDates">From / to</label><input id="hsDates" name="hsDates" placeholder="e.g. 2010 – 2014" /></div>
+                    <fieldset class="form-field">
+                      <legend>Did you graduate?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="hsGraduated" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="hsGraduated" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>College</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="collegeName">School name</label><input id="collegeName" name="collegeName" /></div>
+                    <div class="form-field"><label for="collegeAddress">Address</label><input id="collegeAddress" name="collegeAddress" /></div>
+                    <div class="form-field"><label for="collegeDates">From / to</label><input id="collegeDates" name="collegeDates" /></div>
+                    <div class="form-field"><label for="collegeDegree">Degree</label><input id="collegeDegree" name="collegeDegree" /></div>
+                    <fieldset class="form-field">
+                      <legend>Did you graduate?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="collegeGraduated" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="collegeGraduated" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>Other</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="otherSchoolName">School name</label><input id="otherSchoolName" name="otherSchoolName" /></div>
+                    <div class="form-field"><label for="otherSchoolAddress">Address</label><input id="otherSchoolAddress" name="otherSchoolAddress" /></div>
+                    <div class="form-field"><label for="otherSchoolDates">From / to</label><input id="otherSchoolDates" name="otherSchoolDates" /></div>
+                    <div class="form-field"><label for="otherSchoolDegree">Degree</label><input id="otherSchoolDegree" name="otherSchoolDegree" /></div>
+                    <fieldset class="form-field">
+                      <legend>Did you graduate?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="otherSchoolGraduated" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="otherSchoolGraduated" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" id="section-references" data-section="references">
+              <button type="button" class="form-section__toggle" aria-expanded="false">References</button>
+              <div class="form-section__body">
+                <p class="form-note">Please list three professional references.</p>
+                <div class="form-subsection">
+                  <h3>Reference 1</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="ref1Name">Name</label><input id="ref1Name" name="ref1Name" /></div>
+                    <div class="form-field"><label for="ref1Relationship">Relationship</label><input id="ref1Relationship" name="ref1Relationship" /></div>
+                    <div class="form-field"><label for="ref1Company">Company</label><input id="ref1Company" name="ref1Company" /></div>
+                    <div class="form-field"><label for="ref1Phone">Phone</label><input id="ref1Phone" name="ref1Phone" type="tel" /></div>
+                    <div class="form-field"><label for="ref1Address">Address</label><input id="ref1Address" name="ref1Address" /></div>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>Reference 2</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="ref2Name">Name</label><input id="ref2Name" name="ref2Name" /></div>
+                    <div class="form-field"><label for="ref2Relationship">Relationship</label><input id="ref2Relationship" name="ref2Relationship" /></div>
+                    <div class="form-field"><label for="ref2Company">Company</label><input id="ref2Company" name="ref2Company" /></div>
+                    <div class="form-field"><label for="ref2Phone">Phone</label><input id="ref2Phone" name="ref2Phone" type="tel" /></div>
+                    <div class="form-field"><label for="ref2Address">Address</label><input id="ref2Address" name="ref2Address" /></div>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>Reference 3</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="ref3Name">Name</label><input id="ref3Name" name="ref3Name" /></div>
+                    <div class="form-field"><label for="ref3Relationship">Relationship</label><input id="ref3Relationship" name="ref3Relationship" /></div>
+                    <div class="form-field"><label for="ref3Company">Company</label><input id="ref3Company" name="ref3Company" /></div>
+                    <div class="form-field"><label for="ref3Phone">Phone</label><input id="ref3Phone" name="ref3Phone" type="tel" /></div>
+                    <div class="form-field"><label for="ref3Address">Address</label><input id="ref3Address" name="ref3Address" /></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" id="section-employment" data-section="employment">
+              <button type="button" class="form-section__toggle" aria-expanded="false">Previous Employment</button>
+              <div class="form-section__body">
+                <div class="form-subsection">
+                  <h3>Employer 1</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="emp1Company">Company</label><input id="emp1Company" name="emp1Company" /></div>
+                    <div class="form-field"><label for="emp1Phone">Phone</label><input id="emp1Phone" name="emp1Phone" type="tel" /></div>
+                    <div class="form-field"><label for="emp1Address">Address</label><input id="emp1Address" name="emp1Address" /></div>
+                    <div class="form-field"><label for="emp1Supervisor">Supervisor</label><input id="emp1Supervisor" name="emp1Supervisor" /></div>
+                    <div class="form-field"><label for="emp1Title">Job title</label><input id="emp1Title" name="emp1Title" /></div>
+                    <div class="form-field"><label for="emp1Salary">Starting / ending salary</label><input id="emp1Salary" name="emp1Salary" /></div>
+                    <div class="form-field"><label for="emp1Dates">From / to</label><input id="emp1Dates" name="emp1Dates" /></div>
+                    <div class="form-field"><label for="emp1Reason">Reason for leaving</label><input id="emp1Reason" name="emp1Reason" /></div>
+                    <div class="form-field form-grid--full"><label for="emp1Duties">Responsibilities</label><textarea id="emp1Duties" name="emp1Duties"></textarea></div>
+                    <fieldset class="form-field">
+                      <legend>May we contact this supervisor?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="emp1Contact" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="emp1Contact" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>Employer 2</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="emp2Company">Company</label><input id="emp2Company" name="emp2Company" /></div>
+                    <div class="form-field"><label for="emp2Phone">Phone</label><input id="emp2Phone" name="emp2Phone" type="tel" /></div>
+                    <div class="form-field"><label for="emp2Address">Address</label><input id="emp2Address" name="emp2Address" /></div>
+                    <div class="form-field"><label for="emp2Supervisor">Supervisor</label><input id="emp2Supervisor" name="emp2Supervisor" /></div>
+                    <div class="form-field"><label for="emp2Title">Job title</label><input id="emp2Title" name="emp2Title" /></div>
+                    <div class="form-field"><label for="emp2Salary">Starting / ending salary</label><input id="emp2Salary" name="emp2Salary" /></div>
+                    <div class="form-field"><label for="emp2Dates">From / to</label><input id="emp2Dates" name="emp2Dates" /></div>
+                    <div class="form-field"><label for="emp2Reason">Reason for leaving</label><input id="emp2Reason" name="emp2Reason" /></div>
+                    <div class="form-field form-grid--full"><label for="emp2Duties">Responsibilities</label><textarea id="emp2Duties" name="emp2Duties"></textarea></div>
+                    <fieldset class="form-field">
+                      <legend>May we contact this supervisor?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="emp2Contact" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="emp2Contact" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-subsection">
+                  <h3>Employer 3</h3>
+                  <div class="form-grid form-grid--2">
+                    <div class="form-field"><label for="emp3Company">Company</label><input id="emp3Company" name="emp3Company" /></div>
+                    <div class="form-field"><label for="emp3Phone">Phone</label><input id="emp3Phone" name="emp3Phone" type="tel" /></div>
+                    <div class="form-field"><label for="emp3Address">Address</label><input id="emp3Address" name="emp3Address" /></div>
+                    <div class="form-field"><label for="emp3Supervisor">Supervisor</label><input id="emp3Supervisor" name="emp3Supervisor" /></div>
+                    <div class="form-field"><label for="emp3Title">Job title</label><input id="emp3Title" name="emp3Title" /></div>
+                    <div class="form-field"><label for="emp3Salary">Starting / ending salary</label><input id="emp3Salary" name="emp3Salary" /></div>
+                    <div class="form-field"><label for="emp3Dates">From / to</label><input id="emp3Dates" name="emp3Dates" /></div>
+                    <div class="form-field"><label for="emp3Reason">Reason for leaving</label><input id="emp3Reason" name="emp3Reason" /></div>
+                    <div class="form-field form-grid--full"><label for="emp3Duties">Responsibilities</label><textarea id="emp3Duties" name="emp3Duties"></textarea></div>
+                    <fieldset class="form-field">
+                      <legend>May we contact this supervisor?</legend>
+                      <div class="radio-group">
+                        <label><input type="radio" name="emp3Contact" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="emp3Contact" value="No" /> No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" id="section-military" data-section="military">
+              <button type="button" class="form-section__toggle" aria-expanded="false">Military Service</button>
+              <div class="form-section__body">
+                <div class="form-grid form-grid--2">
+                  <div class="form-field"><label for="militaryBranch">Branch</label><input id="militaryBranch" name="militaryBranch" /></div>
+                  <div class="form-field"><label for="militaryDates">From / to</label><input id="militaryDates" name="militaryDates" /></div>
+                  <div class="form-field"><label for="militaryRank">Rank at discharge</label><input id="militaryRank" name="militaryRank" /></div>
+                  <div class="form-field"><label for="militaryDischarge">Type of discharge</label><input id="militaryDischarge" name="militaryDischarge" /></div>
+                  <div class="form-field"><label for="militaryExplain">If other than honorable, explain</label><textarea id="militaryExplain" name="militaryExplain"></textarea></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section" id="section-signature" data-section="signature">
+              <button type="button" class="form-section__toggle" aria-expanded="false">
+                Disclaimer &amp; Signature
+              </button>
+              <div class="form-section__body">
+                <ul class="disclaimer-list">
+                  <li>
+                    The information that I have provided on this application is accurate to the best
+                    of my knowledge and may be verified by Gavino's Pizzeria and Restaurant.
+                  </li>
+                  <li>
+                    I understand that Gavino's Pizzeria and Restaurant is committed to maintaining a
+                    drug and alcohol free workplace and I may be subject to screening if management
+                    has reasonable suspicion.
+                  </li>
+                  <li>
+                    I understand and agree that any misrepresentation or omission of facts in this
+                    application will be justification for refusal or termination of employment.
+                  </li>
+                  <li>
+                    I understand and agree that employment is at-will and may be terminated at any
+                    time with or without cause, by either party.
+                  </li>
+                </ul>
+                <div class="form-field">
+                  <label for="signature">Type your full name as signature *</label>
+                  <input id="signature" name="signature" required autocomplete="name" />
+                </div>
+                <fieldset class="form-field">
+                  <legend>I certify that my answers are true and complete *</legend>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" name="certify" value="yes" required />
+                      I agree to the disclaimer above
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+            </section>
+
+            <div class="employment-actions">
+              <button class="btn btn--primary" type="submit" id="submit-application">
+                Submit Application
+              </button>
+              <button class="btn btn--outline" type="reset">Clear form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>
