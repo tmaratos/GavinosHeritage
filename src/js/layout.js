@@ -92,7 +92,7 @@ function buildFooter() {
           <a href="${pageUrl()}" class="footer-brand" aria-label="${restaurantInfo.name} home">
             <img
               class="footer-brand__logo"
-              src="${pageUrl('assets/images/logo/logo.png')}"
+              src="${pageUrl('assets/images/logo/logo-transparent.png')}"
               alt="${restaurantInfo.name} classic block logo"
               loading="lazy"
               decoding="async"
