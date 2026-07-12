@@ -19,7 +19,7 @@ Preview exactly how GitHub Pages will look:
 npm run preview:pages
 ```
 
-Open **http://localhost:4173/Gavinos/**
+Open **http://localhost:4173/GavinosHeritage/**
 
 ## Styles (where the CSS lives)
 
@@ -36,7 +36,7 @@ Vite bundles these into `dist/assets/*.css` when you build. **Do not deploy the 
 
 ## GitHub Pages (preview URL)
 
-**Live preview:** https://tmaratos.github.io/Gavinos/
+**Live preview:** https://tmaratos.github.io/GavinosHeritage/
 
 ### One-time setup in GitHub
 
@@ -84,7 +84,7 @@ Applications submit to the **applications email** in `data/restaurant/restaurant
 
 ```bash
 npm run build          # local / custom host (base /)
-npm run build:pages    # GitHub Pages (base /Gavinos/)
+npm run build:pages    # GitHub Pages (base /GavinosHeritage/)
 ```
 
 Output is in `dist/`.

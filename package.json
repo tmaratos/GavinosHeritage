@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:pages": "cross-env VITE_BASE=/Gavinos/ vite build",
+    "build:pages": "cross-env VITE_BASE=/GavinosHeritage/ vite build",
     "preview": "vite preview",
-    "preview:pages": "npm run build:pages && vite preview --base /Gavinos/"
+    "preview:pages": "npm run build:pages && vite preview --base /GavinosHeritage/"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
