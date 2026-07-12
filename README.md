@@ -25,10 +25,11 @@ Open **http://localhost:4173/Gavinos/**
 
 There is no `stylings.css`. Styles are in:
 
-- `src/css/main.css` — site layout, header, footer, mobile
+- `src/css/main.css` — design tokens (heritage theme), header, footer, buttons, shared layout
+- `src/css/heritage-home.css` — homepage sections (hero, menu highlights, timeline, family, reviews)
 - `src/css/menu.css` — menu page
 - `src/css/employment.css` — job application
-- `src/css/chalkboard.css` — chalkboard on all pages (mobile + desktop)
+- `src/css/chalkboard.css` — "Today's Board" specials chalkboard on all pages (mobile + desktop)
 - `src/css/admin.css` — CMS admin panel
 
 Vite bundles these into `dist/assets/*.css` when you build. **Do not deploy the repo root to the web** — only the built `dist/` folder.

@@ -1,6 +1,7 @@
 import '../css/main.css';
 import '../css/italian.css';
 import '../css/chalkboard.css';
+import '../css/heritage-home.css';
 import { renderSiteChrome } from './layout.js';
 import { initChalkboard } from './announcements.js';
 import { initHeroCarousel } from './hero.js';

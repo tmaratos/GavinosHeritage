@@ -32,6 +32,10 @@ function serveDir(route, dirName) {
     apply: 'serve',
     configureServer(server) {
       server.middlewares.use(route, (req, res, next) => {
+        // Defer to Vite for module/asset transforms (e.g. `foo.json?import`),
+        // only serve raw files for plain static requests (runtime fetch, images).
+        if ((req.url || '').includes('?')) return next();
+
         const raw = decodeURIComponent((req.url || '/').split('?')[0]);
         const rel = raw.replace(/^\/+/, '');
         const file = resolve(base, rel);

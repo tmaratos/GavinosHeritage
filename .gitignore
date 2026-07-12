@@ -6,3 +6,4 @@ _live-*
 _scrape-*
 data/menus/_extracted/
 scripts/__pycache__/
+.shots/

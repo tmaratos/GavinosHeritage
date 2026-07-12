@@ -54,30 +54,31 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
-function renderAnnouncementItem(item, index) {
-  const typeScribble =
-    item.type && item.type !== 'general'
+function renderBoardItem(item) {
+  if (item.price) {
+    const desc = item.body
+      ? `<span class="special__desc">${escapeHtml(item.body)}</span>`
+      : '';
+    return `
+      <li class="special" data-announcement-id="${escapeHtml(item.id)}">
+        <span class="special__name">${escapeHtml(item.title)}${desc}</span>
+        <span class="special__dots" aria-hidden="true"></span>
+        <span class="special__price">${escapeHtml(item.price)}</span>
+      </li>
+    `;
+  }
+
+  const scribble =
+    item.type && item.type !== 'general' && item.type !== 'special'
       ? `<span class="chalkboard-note__scribble">${escapeHtml(getTypeLabel(item.type))}</span>`
       : '';
 
-  const button =
-    item.buttonText && item.buttonLink
-      ? `<a class="chalkboard-note__link" href="${escapeHtml(item.buttonLink)}"${
-          item.buttonLink.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : ''
-        }>→ ${escapeHtml(item.buttonText)}</a>`
-      : '';
-
   return `
-    <article
-      class="chalkboard-note chalkboard-note--${escapeHtml(item.type)}"
-      data-announcement-id="${escapeHtml(item.id)}"
-      style="--note-tilt: ${index % 3 === 0 ? '-0.6deg' : index % 3 === 1 ? '0.45deg' : '-0.15deg'}"
-    >
-      ${typeScribble}
-      <h3 class="chalkboard-note__headline">${escapeHtml(item.title)}</h3>
-      <p class="chalkboard-note__lines">${escapeHtml(item.body)}</p>
-      ${button}
-    </article>
+    <li class="chalkboard-note" data-announcement-id="${escapeHtml(item.id)}">
+      ${scribble}
+      <span class="chalkboard-note__title">${escapeHtml(item.title)}</span>
+      ${item.body ? `<span class="chalkboard-note__body">${escapeHtml(item.body)}</span>` : ''}
+    </li>
   `;
 }
 
@@ -93,17 +94,19 @@ export function renderChalkboard(announcements, mount) {
 
   mount.hidden = false;
   mount.innerHTML = `
-    <section class="chalkboard-section" aria-label="Today's announcements">
+    <section class="chalkboard-section" aria-label="Today's specials board">
       <div class="chalkboard">
         <div class="chalkboard__frame">
+          <span class="chalkboard__flag" aria-hidden="true"></span>
           <div class="chalkboard__inner">
-            <header class="chalkboard__header">
-              <h2 class="chalkboard__title">Today's Board</h2>
-              <div class="chalkboard__title-line" aria-hidden="true"></div>
-            </header>
-            <div class="chalkboard__board">
-              ${active.map(renderAnnouncementItem).join('')}
-            </div>
+            <p class="chalkboard__eyebrow">Wednesday &ndash; Friday Specials</p>
+            <h2 class="chalkboard__title">Today's Board</h2>
+            <span class="chalkboard__underline" aria-hidden="true"></span>
+            <ul class="chalkboard__specials">
+              ${active.map(renderBoardItem).join('')}
+            </ul>
+            <p class="chalkboard__buon">Buon Appetito!</p>
+            <span class="chalkboard__ribbon">Since 1982</span>
           </div>
         </div>
       </div>
