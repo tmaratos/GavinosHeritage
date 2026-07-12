@@ -89,13 +89,15 @@ function buildFooter() {
     <footer class="site-footer">
       <div class="site-footer__crest">
         <div class="container">
-          <div class="footer-wordmark">
-            <span class="footer-olive footer-olive--left" aria-hidden="true"></span>
-            <span class="footer-wordmark__name">Gavino's</span>
-            <span class="footer-olive footer-olive--right" aria-hidden="true"></span>
-          </div>
-          <p class="footer-wordmark__sub">Restaurant · Pizzeria</p>
-          <p class="footer-wordmark__tag">Family owned. New York tradition. Since 1982.</p>
+          <a href="${pageUrl()}" class="footer-brand" aria-label="${restaurantInfo.name} home">
+            <img
+              class="footer-brand__logo"
+              src="${pageUrl('assets/images/logo/logo.png')}"
+              alt="${restaurantInfo.name} classic block logo"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
         </div>
       </div>
 

@@ -159,7 +159,6 @@ p {
 
 /* Olive sprig ornaments (masked, inherit currentColor) */
 .brand__olive,
-.footer-olive,
 .ornament {
   display: inline-block;
   background-color: currentColor;
@@ -950,47 +949,18 @@ p {
   border-bottom: 3px solid var(--color-gold);
 }
 
-.footer-wordmark {
-  display: flex;
+.footer-brand {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.75rem, 3vw, 1.75rem);
+  text-decoration: none;
 }
 
-.footer-wordmark__name {
-  font-family: var(--font-script);
-  font-size: clamp(2.9rem, 12vw, 4.75rem);
-  line-height: 0.8;
-  color: var(--gold-bright);
-}
-
-.footer-olive {
-  width: clamp(2.5rem, 9vw, 4rem);
-  height: 1.6rem;
-  color: var(--color-gold);
-  flex: 0 0 auto;
-}
-
-.footer-olive--left {
-  transform: scaleX(-1);
-}
-
-.footer-wordmark__sub {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.42em;
-  text-indent: 0.42em;
-  font-size: clamp(0.72rem, 3vw, 1rem);
-  color: var(--color-cream-on-dark);
-  margin: 0.55rem 0 0;
-}
-
-.footer-wordmark__tag {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: clamp(0.98rem, 3vw, 1.18rem);
-  color: var(--color-gold);
-  margin: 0.5rem 0 0;
+.footer-brand__logo {
+  width: clamp(12rem, 54vw, 20rem);
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
 }
 
 .site-footer__info {
